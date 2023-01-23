@@ -1,0 +1,13 @@
+product:
+    -name
+    -flag(sale,feature,new)
+    -image
+    -price
+    -sku
+    -brand*
+    -reviews*
+    -images*
+    -tags
+    -simple describtion
+    -full describtion
+    -related
