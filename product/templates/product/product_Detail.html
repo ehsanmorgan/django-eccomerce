@@ -76,13 +76,16 @@
                                 <del>$900</del>
                                 <span>${{object.price}}<small></small></span>
                             </h3>
-                            <p class="details-desc">{{object.description}}.</p>
+                            <p class="details-desc">{{object.subtitle}}.</p>
                             <div class="details-list-group">
-                                <label class="details-list-title">{{object.tags}}:</label>
+                                <label class="details-list-title">tags:</label>
                                 <ul class="details-tag-list">
-                                    <li><a href="#">{{object.flag}}</a></li>
-                                    <li><a href="#"></a></li>
-                                    <li><a href="#"></a></li>
+
+                                    {% for tag in object.tags.all %}
+                                        <li><a href="#">{{tag}}</a></li>
+                                    {% endfor %}
+                                    
+                                    
                                 </ul>
                             </div>
                             <div class="details-list-group">
