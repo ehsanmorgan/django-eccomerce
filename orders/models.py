@@ -15,7 +15,7 @@ ORDER_STATUS=(
 
 
 class order(models.Model):
-    odrder_code=models.CharField(max_length=10,default=genirite_code)
+    odrder_code=models.CharField(max_length=12,default=genirite_code)
     user=models.ForeignKey(User,related_name='user_order',on_delete=models.SET_NULL,null=True,blank=True)
     order_status=models.CharField(max_length=12,choices=ORDER_STATUS,default='Recevied')
     delivery_date=models.DateTimeField(null=True,blank=True)
