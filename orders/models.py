@@ -3,6 +3,7 @@ from django.utils import timezone
 from product.models import product
 from django.contrib.auth.models import User
 from .utils.genirite_code import genirite_code
+from django.utils.translation import gettext_lazy as _
 
 # Create your models here.
 
@@ -16,8 +17,8 @@ CART_STATUS=(
 
 class Cart(models.Model):
     
-    user=models.ForeignKey(User,related_name='user_cart',on_delete=models.SET_NULL,null=True,blank=True)
-    cart_status=models.CharField(max_length=12,choices=CART_STATUS,default='Inprogress')
+    user=models.ForeignKey(User,verbose_name=_('Cart'),related_name='user_cart',on_delete=models.SET_NULL,null=True,blank=True)
+    cart_status=models.CharField(verbose_name=_('cart_status'),max_length=12,choices=CART_STATUS,default='Inprogress')
     
 
 
@@ -25,11 +26,11 @@ class Cart(models.Model):
 
 
 class cart_detail(models.Model):
-    cart=models.ForeignKey(Cart,related_name='cart_detail',on_delete=models.CASCADE)
-    product=models.ForeignKey(product,related_name='cart_product',on_delete=models.SET_NULL,null=True,blank=True)
-    price=models.FloatField()
-    quantity=models.IntegerField(default=1)
-    total=models.FloatField(null=True,blank=True)
+    cart=models.ForeignKey( Cart,verbose_name=_('cart'),related_name='cart_detail',on_delete=models.CASCADE)
+    product=models.ForeignKey(product,verbose_name=_('product'),related_name='cart_product',on_delete=models.SET_NULL,null=True,blank=True)
+    price=models.FloatField(_('price'))
+    quantity=models.IntegerField(_('quantity'),default=1)
+    total=models.FloatField(_('total'), null=True,blank=True)
 
 
 
@@ -55,22 +56,22 @@ ORDER_STATUS=(
 
 
 class order(models.Model):
-    odrder_code=models.CharField(max_length=12,default=genirite_code)
-    user=models.ForeignKey(User,related_name='user_order',on_delete=models.SET_NULL,null=True,blank=True)
-    order_status=models.CharField(max_length=12,choices=ORDER_STATUS,default='Recevied')
-    delivery_date=models.DateTimeField(null=True,blank=True)
-    order_date=models.DateTimeField(default=timezone.now)
+    odrder_code=models.CharField(_('odrder_code'),max_length=12,default=genirite_code)
+    user=models.ForeignKey(User,verbose_name=_('order'),related_name='user_order',on_delete=models.SET_NULL,null=True,blank=True)
+    order_status=models.CharField(_('order_status'),max_length=12,choices=ORDER_STATUS,default='Recevied')
+    delivery_date=models.DateTimeField(_('delivery_date'),null=True,blank=True)
+    order_date=models.DateTimeField(_('order_date'),default=timezone.now)
 
     def __str__(self):
         return self.odrder_code
 
 
 class order_detail(models.Model):
-    order=models.ForeignKey(order,related_name='odere_detail',on_delete=models.CASCADE)
-    product=models.ForeignKey(product,related_name='order_product',on_delete=models.SET_NULL,null=True,blank=True)
-    price=models.FloatField()
-    quantity=models.IntegerField(default=1)
-    total=models.FloatField(null=True,blank=True)
+    order=models.ForeignKey(order,verbose_name=_('order_detail'),related_name='odere_detail',on_delete=models.CASCADE)
+    product=models.ForeignKey(product,verbose_name=_('product'),related_name='order_product',on_delete=models.SET_NULL,null=True,blank=True)
+    price=models.FloatField(_('price'))
+    quantity=models.IntegerField(_('quantity'), default=1)
+    total=models.FloatField(_('total'),null=True,blank=True)
 
 
 
