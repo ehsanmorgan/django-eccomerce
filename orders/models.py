@@ -71,6 +71,9 @@ class order_detail(models.Model):
     product=models.ForeignKey(product,verbose_name=_('product'),related_name='order_product',on_delete=models.SET_NULL,null=True,blank=True)
     price=models.FloatField(_('price'))
     quantity=models.IntegerField(_('quantity'), default=1)
+
+
+    
     total=models.FloatField(_('total'),null=True,blank=True)
 
 
