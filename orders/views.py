@@ -6,5 +6,9 @@ from django.views.generic import ListView
 from .models import order
 
 
+
 class order_List(ListView):
     model=order
+
+
+

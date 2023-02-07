@@ -56,7 +56,7 @@
                         {% for object in object_list %}
                             <div class="orderlist">
                                 <div class="orderlist-head">
-                                    <h5>order#01</h5>
+                                    <h5>order#{{forloop.counter}}</h5>
                                     <h5>order {{object.order_status}}</h5>
                                 </div>
                                 <div class="orderlist-body">
@@ -64,20 +64,20 @@
                                         <div class="col-lg-12">
                                             <div class="order-track">
                                                 <ul class="order-track-list">
-                                                    <li class="order-track-item active">
-                                                        <i class="icofont-check"></i>
+                                                    <li class="order-track-item {% if object.order_status == 'Recevied' or object.order_status == 'Processed' or object.order_status == 'Shipped' or object.order_status == 'Delivered' %}active{% endif %}">
+                                                        <i class=" icofont-{% if object.order_status == 'Recevied' or object.order_status == 'Processed' or object.order_staus == 'Shipped' or object.order_status == 'Delivered' %}check{% else %}close{% endif %}  "></i>
                                                         <span>order recieved</span>
                                                     </li>
-                                                    <li class="order-track-item">
-                                                        <i class="icofont-close"></i>
+                                                    <li class="order-track-item {% if object.order_status == 'Processed' or object.order_status == 'Shipped' or object.order_status == 'Delivered' %}active{% endif %} ">
+                                                        <i class="icofont-{% if object.order_status == 'Processed' or object.order_status == 'Shipped' or object.order_status == 'Delivered'%}check{%else%}close{%endif%} "></i>
                                                         <span>order processed</span>
                                                     </li>
-                                                    <li class="order-track-item">
-                                                        <i class="icofont-close"></i>
+                                                    <li class="order-track-item {% if object.order_status == 'Shipped' or object.order_status == 'Delivered' %}active{% endif %}">
+                                                        <i class="icofont-{% if object.order_status == 'Shipped' or object.order_status == 'Delivered' %}check{% else %}close{% endif %}"></i>
                                                         <span>order shipped</span>
                                                     </li>
-                                                    <li class="order-track-item">
-                                                        <i class="icofont-close"></i>
+                                                    <li class="order-track-item {% if object.order_status == 'Delivered' %}active{% endif %} ">
+                                                        <i class="icofont-{% if object.order_status == 'Delivered'%}check{% else %}close{% endif %}"></i>
                                                         <span>order delivered</span>
                                                     </li>
                                                 </ul>
@@ -99,7 +99,7 @@
                                                 </li>
                                                 <li>
                                                     <h6>Delivery Time</h6>
-                                                    <p>12th February 2021</p>
+                                                    <p>{{object.delivery_date}}</p>
                                                 </li>
                                             </ul>
                                         </div>
@@ -143,49 +143,17 @@
                                                         </tr>
                                                     </thead>
                                                     <tbody>
-                                                        <tr>
-                                                            <td class="table-serial"><h6>01</h6></td>
-                                                            <td class="table-image"><img src="images/product/01.jpg" alt="product"></td>
-                                                            <td class="table-name"><h6>product name</h6></td>
-                                                            <td class="table-price"><h6>$19<small>/kilo</small></h6></td>
-                                                            <td class="table-brand"><h6>Fresh Company</h6></td>
-                                                            <td class="table-quantity"><h6>3</h6></td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td class="table-serial"><h6>02</h6></td>
-                                                            <td class="table-image"><img src="images/product/02.jpg" alt="product"></td>
-                                                            <td class="table-name"><h6>product name</h6></td>
-                                                            <td class="table-price"><h6>$19<small>/kilo</small></h6></td>
-                                                            <td class="table-brand"><h6>Radhuni Masala</h6></td>
-                                                            <td class="table-quantity"><h6>5</h6></td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td class="table-serial"><h6>03</h6></td>
-
-
+                                                            {% for product in object.odere_detail.all%}
+                                                                    <tr>
+                                                                        <td class="table-serial"><h6>{{forloop.counter}}</h6></td>
+                                                                        <td class="table-image"><img src="{{product.product.image.url}}" alt="product"></td>
+                                                                        <td class="table-name"><h6>{{product.product}} </h6></td>
+                                                                        <td class="table-price"><h6>${{product.price}}<small>/kilo</small></h6></td>
+                                                                        <td class="table-brand"><h6>{{product.product.brand}}</h6></td>
+                                                                        <td class="table-quantity"><h6>{{product.quantity}}</h6></td>
+                                                                    </tr>
                                                             
-                                                            <td class="table-image"><img src="images/product/03.jpg" alt="product"></td>
-                                                            <td class="table-name"><h6>product name</h6></td>
-                                                            <td class="table-price"><h6>$19<small>/kilo</small></h6></td>
-                                                            <td class="table-brand"><h6>Pran Prio</h6></td>
-                                                            <td class="table-quantity"><h6>2</h6></td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td class="table-serial"><h6>04</h6></td>
-                                                            <td class="table-image"><img src="images/product/04.jpg" alt="product"></td>
-                                                            <td class="table-name"><h6>product name</h6></td>
-                                                            <td class="table-price"><h6>$19<small>/kilo</small></h6></td>
-                                                            <td class="table-brand"><h6>Real Food</h6></td>
-                                                            <td class="table-quantity"><h6>3</h6></td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td class="table-serial"><h6>05</h6></td>
-                                                            <td class="table-image"><img src="images/product/05.jpg" alt="product"></td>
-                                                            <td class="table-name"><h6>product name</h6></td>
-                                                            <td class="table-price"><h6>$19<small>/kilo</small></h6></td>
-                                                            <td class="table-brand"><h6>Rdhuni Company</h6></td>
-                                                            <td class="table-quantity"><h6>7</h6></td>
-                                                        </tr>
+                                                            {% endfor %}
                                                     </tbody>
                                                 </table>
                                             </div>
