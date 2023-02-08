@@ -3,8 +3,8 @@ from django.urls import path
 
 app_name='product'
 
-from .views import productList,productDetail
-from .views import brand_list,brand_detail
+from .views import productList,productDetail,brand_list,brand_detail
+
 
 urlpatterns =[
     path('',productList. as_view(),name='product_list'),

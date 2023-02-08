@@ -24,3 +24,9 @@ class brand_list(ListView):
 
 class brand_detail(DetailView):
     model=Brand
+    
+
+    def get_queryset(self):
+        queryset=Brand.objects.filter(slug=self.kwargs['slug']).annotate(product_count=Count('product_name'))
+
+        return queryset

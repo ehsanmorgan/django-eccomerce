@@ -56,6 +56,13 @@ class Brand(models.Model):
         return self.name
 
 
+    def save(self,*args, **kwargs):
+        self.slug=slugify(self.name)
+        super(Brand,self).save(*args, **kwargs)
+
+    
+
+
 class reviews(models.Model):
     user=models.ForeignKey(User,verbose_name=_('reviews'), related_name='review_author',on_delete=models.SET_NULL,null=True,blank=True)
     product=models.ForeignKey(product,verbose_name=_('product'), related_name='product_review',on_delete=models.CASCADE)
