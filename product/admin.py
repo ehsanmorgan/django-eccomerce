@@ -13,12 +13,14 @@ class ReviewsAdmin(admin.ModelAdmin):
     list_display=['user','product','rate','comment','createt_at']
     list_filter=['rate','createt_at']
     search_fields=['user','poriduct','comment']
+    
 
 
 class productAdmin(admin.ModelAdmin):
-    list_display=['name','brand','price']
+    list_display=['id','name','brand','price']
     list_filter=['brand','price']
     inlines=[productImagesAdmin]
+    list_editable=['name','brand','price']
 
 admin.site.register(product,productAdmin)
 admin.site.register(product_image)
