@@ -22,7 +22,13 @@ class productAdmin(admin.ModelAdmin):
     inlines=[productImagesAdmin]
     list_editable=['name','brand','price']
 
+
+class brandAdmin(admin.ModelAdmin):
+    list_display=['id','name']
+    search_fields=['id','name']
+
+
 admin.site.register(product,productAdmin)
 admin.site.register(product_image)
-admin.site.register(Brand)
+admin.site.register(Brand,brandAdmin)
 admin.site.register(reviews,ReviewsAdmin)
