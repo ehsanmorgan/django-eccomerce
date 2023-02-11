@@ -8,6 +8,15 @@ from .models import product
 from .models import Brand
 
 
+
+
+
+
+def query_debug(request):
+    data=product.objects.filter(price__lte =440)
+    return render(request,'product/productlist.html',{'data':data})
+
+
 class productList(ListView):
     model=product
     paginate_by = 50
