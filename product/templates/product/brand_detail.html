@@ -38,8 +38,8 @@
                       BRAND SINGLE PART START
             =======================================-->
             <div class="brand-single">
-                <a href="#"><img src="{{object.image.url }}" alt="brand"></a>
-                <a href="#"><h3>vegan lovers</h3></a>
+                <a href="#"><img src="{{brand.image.url }}" alt="brand"></a>
+                <a href="#"><h3>{{brand.name}}</h3></a>
                 <ul>
                     <li class="fas fa-star active"></li>
                     <li class="fas fa-star active"></li>
@@ -85,7 +85,7 @@
                     </div>
                     <div class="row row-cols-2 row-cols-md-3 row-cols-lg-3 row-cols-xl-5">
 
-                        {% for item in object.product_name.all %}
+                        {% for item in object_list %}
                                 <div class="col">
                                     <div class="product-card">
                                         <div class="product-media">
@@ -135,30 +135,53 @@
                         {% endfor %}
                        
                     </div>
+                {% if is_paginated %}
                     <div class="row">
+
+                        
                         <div class="col-lg-12">
                             <div class="bottom-paginate">
                                 <p class="page-info">Showing 12 of 60 Results</p>
                                 <ul class="pagination">
-                                    <li class="page-item">
-                                        <a class="page-link" href="#">
-                                            <i class="fas fa-long-arrow-alt-left"></i>
-                                        </a>
-                                    </li>
-                                    <li class="page-item"><a class="page-link active" href="#">1</a></li>
-                                    <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                    <li class="page-item">...</li>
-                                    <li class="page-item"><a class="page-link" href="#">60</a></li>
-                                    <li class="page-item">
-                                        <a class="page-link" href="#">
-                                            <i class="fas fa-long-arrow-alt-right"></i>
-                                        </a>
-                                    </li>
-                                </ul>
+                                    {% if page_obj.has_previous %}
+                                            <li class="page-item">
+
+                                                    <a class="page-link" href="?page={{ page_obj.previous_page_number }}">
+                                                    <i class="fas fa-long-arrow-alt-left"></i>
+                                                </a>
+                                            </li>
+                                        {% endif %}
+
+
+                                            {% for i in paginator.page_range %}
+                                                {% if page_obj.number == i %}
+
+
+                                                        <li class="page-item"><a class="page-link active" href="#">{{ i }}</a></li>
+
+                                                    {% elif i > page_obj.number|add:'-3' and i < page_obj.number|add:'3 ' %}
+
+                                                        <li class="page-item"><a class="page-link" href="?page={{ i }}">{{ i }}</a> </li>
+
+                                                    {% endif %}
+                                            {% endfor %}
+
+                                        {% if page_obj.has_next %}
+
+                                                <li class="page-item">
+                                                    <a class="page-link" href="?page={{ page_obj.next_page_number }}">
+
+                                                        <i class="fas fa-long-arrow-alt-right"></i>
+                                                 </a>
+                                                </li>
+                                            {% endif %}
+
+                                    </ul>
+                                </div>
                             </div>
-                        </div>
+                        
                     </div>
+                {% endif %}
                 </div>
             </section>
             <!--=====================================
