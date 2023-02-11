@@ -137,7 +137,7 @@
 
                                                         <li class="page-item"><a class="page-link active" href="#">{{ i }}</a></li>
 
-                                                    {% elif i > page_obj.number|add:'-5' and i < page_obj.number|add:'5' %}
+                                                    {% elif i > page_obj.number|add:'-5' and i < page_obj.number|add:'5 ' %}
 
                                                         <li class="page-item"><a class="page-link" href="?page={{ i }}">{{ i }}</a> </li>
 

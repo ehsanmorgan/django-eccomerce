@@ -28,6 +28,10 @@ class product(models.Model):
     description=models.TextField(_('description'), max_length=1000)
     slug=models.SlugField(null=True,blank=True)
 
+    class Meta:
+        ordering=('name',)
+        ordering=('price',)
+
 
 
     def save(self,*args, **kwargs):

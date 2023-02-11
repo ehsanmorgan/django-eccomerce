@@ -13,7 +13,7 @@ from .models import Brand
 
 
 def query_debug(request):
-    data=product.objects.filter(price__lte =440)
+    data=product.objects.filter().order_by ('-name')
     return render(request,'product/productlist.html',{'data':data})
 
 
