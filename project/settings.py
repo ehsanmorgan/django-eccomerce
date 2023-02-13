@@ -37,8 +37,13 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+     'django_extensions',
+     "debug_toolbar",
+     "settings",
+     "orders",
     "taggit",
     "product",
+    
 ]
 
 MIDDLEWARE = [
@@ -47,8 +52,10 @@ MIDDLEWARE = [
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
+    "debug_toolbar.middleware.DebugToolbarMiddleware",
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    
 ]
 
 ROOT_URLCONF = 'project.urls'
@@ -56,7 +63,7 @@ ROOT_URLCONF = 'project.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -64,6 +71,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                 'settings.company_context.get_data',
             ],
         },
     },
@@ -126,7 +134,28 @@ STATICFILES_DIRS = [
 MEDIA_URL='media/'
 MEDIA_ROOT=BASE_DIR/'media'
 
+
+
+
+GRAPH_MODELS = {
+  'all_applications': True,
+  'group_models': True,
+}
+ 
+
+GRAPH_MODELS = {
+  'app_labels': ["myapp1", "myapp2", "auth"],
+}
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+
+INTERNAL_IPS = [
+    # ...
+    "127.0.0.1",
+    # ...
+]

@@ -3,6 +3,7 @@ from taggit.managers import TaggableManager
 from django.utils.translation import gettext_lazy as _
 from django.utils import timezone
 from django.contrib.auth.models import User
+from django.utils.text import slugify
 
 
 
@@ -23,11 +24,24 @@ class product(models.Model):
     brand=models.ForeignKey('Brand',verbose_name=_('brand'), related_name='product_name',on_delete=models.CASCADE)
     tags=TaggableManager()
     subtitle=models.TextField(_('subtitle'),max_length=500)
+    quantity=models.IntegerField(default=0)
     description=models.TextField(_('description'), max_length=1000)
     slug=models.SlugField(null=True,blank=True)
+
+    class Meta:
+        ordering=('name',)
+        ordering=('price',)
+
+
+
+    def save(self,*args, **kwargs):
+        self.slug=slugify(self.name)
+        super(product,self).save(*args, **kwargs)
     
     def __str__(self):
         return self.name
+
+    
 class product_image(models.Model):
     product=models.ForeignKey(product,verbose_name=_('product'), related_name='product_image',on_delete=models.CASCADE)
     image=models.ImageField( _('image'), upload_to='product_images/')
@@ -38,11 +52,19 @@ class product_image(models.Model):
 
 
 class Brand(models.Model):
-    name=models.CharField(_('brand'), max_length=100)
+    name=models.CharField(_('name'), max_length=100)
     image=models.ImageField( _('image'), upload_to='brand/')
+    slug=models.SlugField(null=True,blank=True)
 
     def __str__(self):
         return self.name
+
+
+    def save(self,*args, **kwargs):
+        self.slug=slugify(self.name)
+        super(Brand,self).save(*args, **kwargs)
+
+    
 
 
 class reviews(models.Model):
