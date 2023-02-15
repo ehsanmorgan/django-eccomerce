@@ -12,7 +12,7 @@ class productImagesAdmin(admin.TabularInline):
 class ReviewsAdmin(admin.ModelAdmin):
     list_display=['user','product','rate','comment','createt_at']
     list_filter=['rate','createt_at']
-    search_fields=['user','poriduct','comment']
+    search_fields=['product__name','comment']
     
 
 
@@ -21,6 +21,7 @@ class productAdmin(admin.ModelAdmin):
     list_filter=['brand','price']
     inlines=[productImagesAdmin]
     list_editable=['name','brand','price']
+    search_fields=['name','price']
 
 
 class brandAdmin(admin.ModelAdmin):

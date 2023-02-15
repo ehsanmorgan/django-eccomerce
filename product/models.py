@@ -4,6 +4,7 @@ from django.utils.translation import gettext_lazy as _
 from django.utils import timezone
 from django.contrib.auth.models import User
 from django.utils.text import slugify
+from django.db.models.aggregates import Avg
 
 
 
@@ -28,11 +29,25 @@ class product(models.Model):
     description=models.TextField(_('description'), max_length=1000)
     slug=models.SlugField(null=True,blank=True)
 
+
+
+
+
+
+    def get_avg_rate(self):
+        avg=self.product_review.aggregate(rate_avg=Avg('rate'))
+        return avg
+
+
+
+
+ 
+
     class Meta:
         ordering=('name',)
         ordering=('price',)
 
-
+       
 
     def save(self,*args, **kwargs):
         self.slug=slugify(self.name)

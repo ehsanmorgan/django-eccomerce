@@ -1,5 +1,8 @@
 from django.shortcuts import render
 from django.db.models import Count
+from django.db.models.aggregates import Sum,Min,Max,Avg
+from django.db.models import Value,F,Q,Func,DecimalField,FloatField,ExpressionWrapper
+from django.db.models.functions import Concat
 
 # Create your views here.
 from django.views.generic import ListView,DetailView
@@ -12,9 +15,6 @@ from .models import Brand
 
 
 
-def query_debug(request):
-    data=product.objects.filter().order_by ('-name')
-    return render(request,'product/productlist.html',{'data':data})
 
 
 class productList(ListView):

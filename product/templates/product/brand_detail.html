@@ -106,12 +106,13 @@
                                         </div>
                                         <div class="product-content">
                                             <div class="product-rating">
-                                                <i class="active icofont-star"></i>
-                                                <i class="active icofont-star"></i>
-                                                <i class="active icofont-star"></i>
-                                                <i class="active icofont-star"></i>
-                                                <i class="icofont-star"></i>
-                                                <a href="product-video.html">(3)</a>
+                                                <i class="icofont-star {% if item.get_avg_rate.rate_avg == 1 or item.get_avg_rate.rate_avg == 2 or item.get_avg_rate.rate_avg == 3 or item.get_avg_rate.rate_avg == 4 or item.get_avg_rate.rate_avg == 5 %}active{% endif %} "></i>
+                                                <i class="icofont-star {% if item.get_avg_rate.rate_avg == 2 or item.get_avg_rate.rate_avg == 3 or item.get_avg_rate.rate_avg == 4 or item.get_avg_rate.rate_avg == 5 %}active{% endif %} "></i>
+                                                <i class="icofont-star {% if item.get_avg_rate.rate_avg == 3 or product.get_avg_rate.rate_avg == 4 or item.get_avg_rate.rate_avg == 5 %}active{% endif %} "></i>
+                                                <i class="icofont-star {% if item.get_avg_rate.rate_avg == 4 or item.get_avg_rate.rate_avg == 5 %}active{% endif %} "></i>
+                                                <i class="icofont-star {% if item.get_avg_rate.rate_avg == 5 %}active{% endif %} "></i>
+                                                <a href="item-video.html">({{item.product_review.all|length}})</a>
+                                                <p> {{item.get_avg_rate.rate_avg}} </p>
                                             </div>
                                             <h6 class="product-name">
                                                 <a href="product-video.html">{{item}}</a>

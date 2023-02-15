@@ -85,18 +85,19 @@
                             </div>
                             <div class="product-content">
                                 <div class="product-rating">
-                                    <i class="active icofont-star"></i>
-                                    <i class="active icofont-star"></i>
-                                    <i class="active icofont-star"></i>
-                                    <i class="active icofont-star"></i>
-                                    <i class="icofont-star"></i>
-                                    <a href="product-video.html">(3)</a>
+                                    <i class="icofont-star {% if product.get_avg_rate.rate_avg == 1 or product.get_avg_rate.rate_avg == 2 or product.get_avg_rate.rate_avg == 3 or product.get_avg_rate.rate_avg == 4 or product.get_avg_rate.rate_avg == 5 %}active{% endif %} "></i>
+                                    <i class="icofont-star {% if product.get_avg_rate.rate_avg == 2 or product.get_avg_rate.rate_avg == 3 or product.get_avg_rate.rate_avg == 4 or product.get_avg_rate.rate_avg == 5 %}active{% endif %} "></i>
+                                    <i class="icofont-star {% if product.get_avg_rate.rate_avg == 3 or product.get_avg_rate.rate_avg == 4 or product.get_avg_rate.rate_avg == 5 %}active{% endif %} "></i>
+                                    <i class="icofont-star {% if product.get_avg_rate.rate_avg == 4 or product.get_avg_rate.rate_avg == 5 %}active{% endif %} "></i>
+                                    <i class="icofont-star {% if product.get_avg_rate.rate_avg == 5 %}active{% endif %} "></i>
+                                    <a href="product-video.html">({{product.product_review.all|length}})</a>
+                                    <p> {{product.get_avg_rate.rate_avg}} </p>
                                 </div>
                                 <h6 class="product-name">
                                     <a href="{% url 'products:product_detail' product.slug %}">{{product}}</a>
                                 </h6>
                                 <h6 class="product-price">
-                                    <del>$900</del>
+                                    <del></del>
                                     <span>${{product.price}}<small>/piece</small></span>
                                 </h6>
                                 <button class="product-add" title="Add to Cart">
