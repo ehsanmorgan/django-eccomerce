@@ -1893,78 +1893,21 @@
                     </div>
                 </div>
                 <div class="brand-slider slider-arrow">
-                    <div class="brand-wrap">
-                        <div class="brand-media">
-                            <img src="images/brand/01.jpg" alt="brand">
-                            <div class="brand-overlay">
-                                <a href="brand-single.html"><i class="fas fa-link"></i></a>
+
+                    {% for brand in brands %}
+                        <div class="brand-wrap">
+                            <div class="brand-media">
+                                <img src="{{brand.image.url}}" alt="brand">
+                                <div class="brand-overlay">
+                                    <a href="{% url 'products:brand_detail' brand.slug %}"><i class="fas fa-link"></i></a>
+                                </div>
+                            </div>
+                            <div class="brand-meta">
+                                <h4>{{brand.name}}</h4>
+                                <p>({{brand.product_count}} items)</p>
                             </div>
                         </div>
-                        <div class="brand-meta">
-                            <h4>natural greeny</h4>
-                            <p>(45 items)</p>
-                        </div>
-                    </div>
-                    <div class="brand-wrap">
-                        <div class="brand-media">
-                            <img src="images/brand/02.jpg" alt="brand">
-                            <div class="brand-overlay">
-                                <a href="brand-single.html"><i class="fas fa-link"></i></a>
-                            </div>
-                        </div>
-                        <div class="brand-meta">
-                            <h4>vegan lover</h4>
-                            <p>(45 items)</p>
-                        </div>
-                    </div>
-                    <div class="brand-wrap">
-                        <div class="brand-media">
-                            <img src="images/brand/03.jpg" alt="brand">
-                            <div class="brand-overlay">
-                                <a href="brand-single.html"><i class="fas fa-link"></i></a>
-                            </div>
-                        </div>
-                        <div class="brand-meta">
-                            <h4>organic foody</h4>
-                            <p>(45 items)</p>
-                        </div>
-                    </div>
-                    <div class="brand-wrap">
-                        <div class="brand-media">
-                            <img src="images/brand/04.jpg" alt="brand">
-                            <div class="brand-overlay">
-                                <a href="brand-single.html"><i class="fas fa-link"></i></a>
-                            </div>
-                        </div>
-                        <div class="brand-meta">
-                            <h4>ecomart limited</h4>
-                            <p>(45 items)</p>
-                        </div>
-                    </div>
-                    <div class="brand-wrap">
-                        <div class="brand-media">
-                            <img src="images/brand/05.jpg" alt="brand">
-                            <div class="brand-overlay">
-                                <a href="brand-single.html"><i class="fas fa-link"></i></a>
-                            </div>
-                        </div>
-                        <div class="brand-meta">
-                            <h4>fresh fortune</h4>
-                            <p>(45 items)</p>
-                        </div>
-                    </div>
-                    <div class="brand-wrap">
-                        <div class="brand-media">
-                            <img src="images/brand/06.jpg" alt="brand">
-                            <div class="brand-overlay">
-                                <a href="brand-single.html"><i class="fas fa-link"></i></a>
-                            </div>
-                        </div>
-                        <div class="brand-meta">
-                            <h4>econature</h4>
-                            <p>(45 items)</p>
-                        </div>
-                    </div>
+                    {% endfor %}
                 </div>
                 <div class="row">
                     <div class="col-lg-12">

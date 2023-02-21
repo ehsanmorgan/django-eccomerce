@@ -40,7 +40,7 @@
                             <ul class="details-preview"> 
 
                                 {% for img in object.product_image.all %}
-                                    <li><img src="{{img.image.url}}" alt="product"></li>
+                                    <li><img src="{{img.image.url}}" style="width:240px;height:160ppx;" alt="product"></li>
                                     
                                 {% endfor %}
                                 
@@ -48,8 +48,7 @@
                             </ul>
                             <ul class="details-thumb">
                                 {% for img in object.product_image.all %}
-
-                                        <li><img src="{{img.image.url}}" alt="product"></li>
+                                    <li><img src="{{img.image.url}}" style="width:240px;height:160ppx;" alt="product"></li>
                                 {% endfor %}
                                 
                                 
