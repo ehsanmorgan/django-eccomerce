@@ -236,11 +236,11 @@
                                                     <a href="product-video.html">{{product.item_feature}}</a>
                                                 </h6>
                                                 <div class="feature-rating">
-                                                    <i class="icofont-star {% if product.get_avg_rate.rate_avg == 1 or product.get_avg_rate.rate_avg == 2 or product.get_avg_rate.rate_avg == 3 or product.get_avg_rate.rate_avg == 4 or product.get_avg_rate.rate_avg == 5 %}active{% endif %} "></i>
-                                        <i class="icofont-star {% if product.get_avg_rate.rate_avg == 2 or product.get_avg_rate.rate_avg == 3 or product.get_avg_rate.rate_avg == 4 or product.get_avg_rate.rate_avg == 5 %}active{% endif %} "></i>
-                                        <i class="icofont-star {% if product.get_avg_rate.rate_avg == 3 or product.get_avg_rate.rate_avg == 4 or product.get_avg_rate.rate_avg == 5 %}active{% endif %} "></i>
-                                        <i class="icofont-star {% if product.get_avg_rate.rate_avg == 4 or product.get_avg_rate.rate_avg == 5 %}active{% endif %} "></i>
-                                        <i class="icofont-star {% if product.get_avg_rate.rate_avg == 5 %}active{% endif %} "></i>
+                                                    <i class="icofont-star {% if product.get_avg_rate.rate_avg > 0 %}active{% endif %} "></i>
+                                        <i class="icofont-star {% if product.get_avg_rate.rate_avg > 1 %}active{% endif%} "></i>
+                                        <i class="icofont-star {% if product.get_avg_rate.rate_avg > 2 %}active{% endif %} "></i>
+                                        <i class="icofont-star {% if product.get_avg_rate.rate_avg > 3 %}active{% endif %} "></i>
+                                        <i class="icofont-star {% if product.get_avg_rate.rate_avg > 4 %}active{% endif %} "></i>
                                         <a href="product-video.html">({{product.product_review.all|length}})</a>
                                         <p> Reviews </p>
                                                 </div>
