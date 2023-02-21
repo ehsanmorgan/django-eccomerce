@@ -1,3 +1,16 @@
 from django.shortcuts import render
+from product.models import Brand,product,reviews
+from django.db.models import Count
 
 # Create your views here.
+
+
+def home(request):
+    item_sale=product.objects.filter(flag='Sale')[:10]
+    item_feature=product.objects.filter(flag='feature')[:10]
+    brands=Brand.objects.all().annotate(product_count=Count('product_name'))
+    return render(request,'settings/home.html',{
+        'brands':brands,
+        'item_sale':item_sale,
+        'item_feature':item_feature,
+        })

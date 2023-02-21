@@ -73,7 +73,7 @@
                                     <i class="icofont-star {% if object.get_avg_rate.rate_avg == 4 or object.get_avg_rate.rate_avg == 5 %}active{% endif %} "></i>
                                     <i class="icofont-star {% if object.get_avg_rate.rate_avg == 5 %}active{% endif %} "></i>
                                     <a href="object-video.html">({{object.product_review.all|length}})</a>
-                                    <p> {{object.get_avg_rate.rate_avg}} </p>
+                                    <p>   </p>
                             </div>
                             <h3 class="details-price">
                                 <del>$900</del>
@@ -169,32 +169,13 @@
                         </div>
                         <div class="product-details-frame">
                             <h3 class="frame-title">Reviews (2)</h3>
-                            <ul class="review-list">
-                                {% for review in object.product_review.all %}
-                                    <li class="review-item">
-                                        <div class="review-media">
-                                            <a class="review-avatar" href="#">
-                                                <img src=" {% static 'images/avatar/01.jpg'%} " alt="review">
-                                            </a>
-                                            <h5 class="review-meta">
-                                                <a href="#">{{ review.user }}</a>
-                                                <span>{{review.createt_at}}</span>
-                                            </h5>
-                                        </div>
-                                        <ul class="review-rating">
-                                            <li class="  {% if review.rate > 0 %}icofont-ui-rating{% else %} icofont-ui-rate-blank {% endif %}"></li>
-                                            <li class="  {% if review.rate > 1  %}icofont-ui-rating{% else %} icofont-ui-rate-blank {% endif %}"></li>
-                                            <li class="  {% if review.rate > 2 %}icofont-ui-rating{% else %} icofont-ui-rate-blank {% endif %}"></li>
-                                            <li class="  {% if review.rate > 3  %}icofont-ui-rating{% else %} icofont-ui-rate-blank {% endif %}"></li>
-                                            <li class="  {% if review.rate > 4  %}icofont-ui-rating{% else %} icofont-ui-rate-blank {% endif %}"></li>
-                                        </ul>
-                                        <p class="review-desc"> {{ review.comment }} </p>
-                                    </li>
-                                {% endfor %}
+                            <ul class="review-list" id="add-all">
+                                    {% include 'include/add_all.html' %}
+                            </ul>
                         </div>
                         <div class="product-details-frame">
                             <h3 class="frame-title">add your review</h3>
-                            <form class="review-form" method="post" action="{% url  'products:add_review' object.slug %} ">
+                            <form class="review-form" id="reviewForm" method="post" action="{% url  'products:add_review' object.slug %} ">
                                 {% csrf_token %}
                                 <div class="row">
                                     <div class="col-lg-12">
@@ -725,6 +706,56 @@
         <!--=====================================
                  PRODUCT RELATED PART END
         =======================================-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js" integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
+        <script>
+            $(document).ready(function(e){
+                $(document).on('submit','#reviewForm',function(e){
+                    e.preventDefault();
+                    $.ajax({
+                        type:$(this).attr('method'),
+                        url:$(this).attr('action'),
+                        data:$(this).serialize(),
+                        dataType:'json',
+                        success:function(response){
+                            $('#add-all').html(response['result'])
+                            $("#reviewForm").trigger('reset');
+                            
+
+                        },
+                        error:function(response){}
+
+
+
+                    })                    
+                })
+            })
+        </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 {% endblock body  %}

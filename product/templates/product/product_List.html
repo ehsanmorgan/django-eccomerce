@@ -73,7 +73,7 @@
                                     <i class="fas fa-heart"></i>
                                 </button>
                                 <a class="product-image" href="product-video.html">
-                                    <img src="{{product.image.url}}" alt="product">
+                                    <img src="{{product.image.url}}" style="width:240px;height: 160px;" alt="product">
 
                                     
                                 </a>
@@ -91,7 +91,7 @@
                                     <i class="icofont-star {% if product.get_avg_rate.rate_avg == 4 or product.get_avg_rate.rate_avg == 5 %}active{% endif %} "></i>
                                     <i class="icofont-star {% if product.get_avg_rate.rate_avg == 5 %}active{% endif %} "></i>
                                     <a href="product-video.html">({{product.product_review.all|length}})</a>
-                                    <p> {{product.get_avg_rate.rate_avg}} </p>
+                                    <p>  </p>
                                 </div>
                                 <h6 class="product-name">
                                     <a href="{% url 'products:product_detail' product.slug %}">{{product}}</a>

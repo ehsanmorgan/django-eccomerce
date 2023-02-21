@@ -5,8 +5,10 @@ from django.db.models import Value,F,Q,Func,DecimalField,FloatField,ExpressionWr
 from django.db.models.functions import Concat
 from django.views.generic import ListView,DetailView
 from .forms import productReviewsForm
-from .models import product
+from .models import product,reviews
 from .models import Brand
+from django.http import JsonResponse
+from django.template.loader import render_to_string
 
 
 
@@ -22,6 +24,11 @@ class productList(ListView):
 class productDetail(DetailView):
     model=product
 
+    
+
+
+
+
 
 
 
@@ -35,7 +42,10 @@ def add_review(request,slug):
             myform.product=product_1
             myform.save()
 
-    return redirect (f'/products/{product_1.slug}')
+    
+            reviews_1=reviews.objects.filter(product=product_1)
+            html = render_to_string('include/add_all.html',{'reviews_1':reviews_1 , request:request})
+            return JsonResponse({'result':html})
 
 
 class brand_list(ListView):

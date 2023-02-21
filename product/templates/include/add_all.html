@@ -1,0 +1,21 @@
+{% for review in reviews_1 %}
+    <li class="review-item">
+        <div class="review-media">
+            <a class="review-avatar" href="#">
+                <img src=" images/avatar/01.jpg " alt="review">
+            </a>
+            <h5 class="review-meta">
+                <a href="#">{{ review.user }}</a>
+                <span>{{review.createt_at}}</span>
+            </h5>
+        </div>
+        <ul class="review-rating">
+            <li class="  {% if review.rate > 0 %}icofont-ui-rating{% else %} icofont-ui-rate-blank {% endif %}"></li>
+            <li class="  {% if review.rate > 1  %}icofont-ui-rating{% else %} icofont-ui-rate-blank {% endif %}"></li>
+            <li class="  {% if review.rate > 2 %}icofont-ui-rating{% else %} icofont-ui-rate-blank {% endif %}"></li>
+            <li class="  {% if review.rate > 3  %}icofont-ui-rating{% else %} icofont-ui-rate-blank {% endif %}"></li>
+            <li class="  {% if review.rate > 4  %}icofont-ui-rating{% else %} icofont-ui-rate-blank {% endif %}"></li>
+        </ul>
+            <p class="review-desc"> {{ review.comment }} </p>
+    </li>
+{% endfor %}

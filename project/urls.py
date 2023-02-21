@@ -23,6 +23,7 @@ urlpatterns = [
     path('products/',include('product.urls',namespace='products')),
     path('orders/',include('orders.urls',namespace='orders')),
     path('__debug__/', include('debug_toolbar.urls')),
+    path('',include('settings.urls',namespace='settings')),
 ]
 urlpatterns+= static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
