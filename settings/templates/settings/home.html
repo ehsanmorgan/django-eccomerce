@@ -1941,58 +1941,22 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="testimonial-slider slider-arrow">
-                            <div class="testimonial-card">
-                                <i class="fas fa-quote-left"></i>
-                                <p>Lorem ipsum dolor consectetur adipisicing elit neque earum sapiente vitae obcaecati magnam doloribus magni provident ipsam</p>
-                                <h5>mahmud hasan</h5>
-                                <ul>
-                                    <li class="fas fa-star"></li>
-                                    <li class="fas fa-star"></li>
-                                    <li class="fas fa-star"></li>
-                                    <li class="fas fa-star"></li>
-                                    <li class="fas fa-star"></li>
-                                </ul>
-                                <img src="images/avatar/01.jpg" alt="testimonial">
-                            </div>
-                            <div class="testimonial-card">
-                                <i class="fas fa-quote-left"></i>
-                                <p>Lorem ipsum dolor consectetur adipisicing elit neque earum sapiente vitae obcaecati magnam doloribus magni provident ipsam</p>
-                                <h5>mahmud hasan</h5>
-                                <ul>
-                                    <li class="fas fa-star"></li>
-                                    <li class="fas fa-star"></li>
-                                    <li class="fas fa-star"></li>
-                                    <li class="fas fa-star"></li>
-                                    <li class="fas fa-star"></li>
-                                </ul>
-                                <img src="images/avatar/02.jpg" alt="testimonial">
-                            </div>
-                            <div class="testimonial-card">
-                                <i class="fas fa-quote-left"></i>
-                                <p>Lorem ipsum dolor consectetur adipisicing elit neque earum sapiente vitae obcaecati magnam doloribus magni provident ipsam</p>
-                                <h5>mahmud hasan</h5>
-                                <ul>
-                                    <li class="fas fa-star"></li>
-                                    <li class="fas fa-star"></li>
-                                    <li class="fas fa-star"></li>
-                                    <li class="fas fa-star"></li>
-                                    <li class="fas fa-star"></li>
-                                </ul>
-                                <img src="images/avatar/03.jpg" alt="testimonial">
-                            </div>
-                            <div class="testimonial-card">
-                                <i class="fas fa-quote-left"></i>
-                                <p>Lorem ipsum dolor consectetur adipisicing elit neque earum sapiente vitae obcaecati magnam doloribus magni provident ipsam</p>
-                                <h5>mahmud hasan</h5>
-                                <ul>
-                                    <li class="fas fa-star"></li>
-                                    <li class="fas fa-star"></li>
-                                    <li class="fas fa-star"></li>
-                                    <li class="fas fa-star"></li>
-                                    <li class="fas fa-star"></li>
-                                </ul>
-                                <img src="images/avatar/04.jpg" alt="testimonial">
-                            </div>
+                            {% for review in reviews_2_ %}
+                                <div class="testimonial-card">
+                                    <i class="fas fa-quote-left"></i>
+                                    <p>{{review.comment}}</p>
+                                    <h5>{{review.user}}</h5>
+                                    <ul>
+                                        <li class="fas {% if review.rate > 0 %}fa-star{% endif %}"></li>
+                                        <li class="fas {% if review.rate > 1 %}fa-star{% endif %}"></li>
+                                        <li class="fas {% if review.rate > 2 %}fa-star{% endif %}"></li>
+                                        <li class="fas {% if review.rate > 3 %}fa-star{% endif %}"></li>
+                                        <li class="fas {% if review.rate > 4 %}fa-star{% endif %}"></li>
+                                    </ul>
+                                    <img src="images/avatar/01.jpg" alt="testimonial">
+                                </div>
+                            {% endfor %}
+                           
                         </div>
                     </div>
                 </div>
