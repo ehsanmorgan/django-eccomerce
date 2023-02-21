@@ -228,12 +228,12 @@
                                                 <div class="feature-widget">
                                                     <a title="Product Compare" href="compare.html" class="fas fa-random"></a>
                                                     <a title="Product Video" href="https://youtu.be/9xzcVxSBbG8" class="venobox fas fa-play" data-autoplay="true" data-vbtype="video"></a>
-                                                    <a title="Product View" href="#" class="fas fa-eye" data-bs-toggle="modal" data-bs-target="#product-view"></a>
+                                                    <a title="Product View" href="" class="fas fa-eye" data-bs-toggle="modal" data-bs-target="#product-view"></a>
                                                 </div>
                                             </div>
                                             <div class="feature-content">
                                                 <h6 class="feature-name">
-                                                    <a href="product-video.html">{{product.item_feature}}</a>
+                                                    <a href="{% url 'products:product_detail' product.slug %}">{{product}}</a>
                                                 </h6>
                                                 <div class="feature-rating">
                                                     <i class="icofont-star {% if product.get_avg_rate.rate_avg > 0 %}active{% endif %} "></i>
@@ -248,7 +248,7 @@
                                                     <del></del>
                                                     <span>${{product.price}}<small></small></span>
                                                 </h6>
-                                                <p class="feature-desc">{{product.description}}</p>
+                                                <p class="feature-desc">{{product.description|truncatewords:"20"}}</p>
                                                 <button class="product-add" title="Add to Cart">
                                                     <i class="fas fa-shopping-basket"></i>
                                                     <span>add</span>
