@@ -7,6 +7,7 @@ from .views import productList,productDetail,brand_list,brand_detail,add_review
 
 
 urlpatterns =[
+
     
     path('',productList. as_view(),name='product_list'),
     path('<slug:slug>',productDetail.as_view(),name='product_detail'),
