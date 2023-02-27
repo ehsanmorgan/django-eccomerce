@@ -12,7 +12,7 @@ def peoductList_api(request):
     return Response({'data':data})
 
 
-class productListApi(generics.ListAPIView):
+class productListApi(generics.ListCreateAPIView):
     queryset=product.objects.all() 
     serializer_class=productSerialize 
         
@@ -20,7 +20,7 @@ class productListApi(generics.ListAPIView):
         
         
         
-class productDetailApi(generics.RetrieveAPIView):
+class productDetailApi(generics.RetrieveUpdateAPIView):
     queryset=product.objects.all() 
     serializer_class=productSerialize 
     lookup_field='slug'
