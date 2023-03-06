@@ -30,9 +30,10 @@ class productListSerialize(serializers.ModelSerializer):
         return product.price * 1.1
 
 class ReviewSerializer(serializers.ModelSerializer):
+    user=serializers.StringRelatedField()
     class Meta:
         model=reviews
-        fields='__all__'
+        fields= ['comment','rate','createt_at','user']
 
 
 class productDetailSerialize(serializers.ModelSerializer):
