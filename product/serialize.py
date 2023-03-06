@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import product,Brand,product_image
+from .models import product,Brand,product_image,reviews
 
 
 
@@ -28,19 +28,39 @@ class productListSerialize(serializers.ModelSerializer):
         
     def myprice(self,product):
         return product.price * 1.1
-    
+
+class ReviewSerializer(serializers.ModelSerializer):
+    class Meta:
+        model=reviews
+        fields='__all__'
+
+
 class productDetailSerialize(serializers.ModelSerializer):
     brand=serializers.StringRelatedField()
     image=imagesSerializer(source='product_image',many=True)
+    review_count=serializers.SerializerMethodField()
+    review=ReviewSerializer(source='product_review',many=True)
     
 
     class Meta:
         model = product
         fields= '__all__'
         
+        
+    def get_review_count(self,product):
+        review=product.product_review.all().count()
+        return review
   
     
 
+    
+    
+    
+    
+    
+    
+    
+    
 
 class brandListSerializer(serializers.ModelSerializer):
     class Meta:

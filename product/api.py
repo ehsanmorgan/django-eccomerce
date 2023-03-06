@@ -18,8 +18,7 @@ class productListApi(generics.ListCreateAPIView):
     
     
 
-        
-        
+
         
         
         
