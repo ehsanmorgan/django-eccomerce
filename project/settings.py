@@ -41,6 +41,8 @@ INSTALLED_APPS = [
      "debug_toolbar",
      "settings",
      "orders",
+    'django_filters',
+
     "taggit",
     "product",
     'rest_framework',
@@ -49,6 +51,7 @@ INSTALLED_APPS = [
 
 
 REST_FRAMEWORK = {
+    'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend'],
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
     'PAGE_SIZE': 100
 }

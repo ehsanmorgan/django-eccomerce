@@ -4,6 +4,9 @@ from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework import generics
 from .pagenation import mypage
+import django_filters.rest_framework
+from .myfillters import productFilter
+
 
 
 @api_view(['GET'])
@@ -17,6 +20,10 @@ class productListApi(generics.ListCreateAPIView):
     queryset=product.objects.all() 
     serializer_class=productListSerialize 
     pagination_class=mypage
+    filter_backends = [django_filters.rest_framework.DjangoFilterBackend]
+    filterset_fields=['name','brand','flag','price']
+    filterset_class=productFilter
+    
     
     
 
