@@ -5,7 +5,7 @@ from rest_framework.response import Response
 from rest_framework import generics
 from .pagenation import mypage
 import django_filters.rest_framework
-from .myfillters import productFilter
+from .myfillters import productFilter,brandFilter
 
 
 
@@ -41,6 +41,8 @@ class productDetailApi(generics.RetrieveUpdateDestroyAPIView):
 class BrandListApi(generics.ListAPIView):
     queryset=Brand.objects.all()
     serializer_class=brandListSerializer 
+    filter_backends = [django_filters.rest_framework.DjangoFilterBackend]
+    filterset_class=brandFilter
     
     
 class BrandDetailView(generics.RetrieveAPIView):
