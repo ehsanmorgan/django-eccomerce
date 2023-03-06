@@ -20,7 +20,7 @@ class productListApi(generics.ListCreateAPIView):
         
         
         
-class productDetailApi(generics.RetrieveUpdateAPIView):
+class productDetailApi(generics.RetrieveUpdateDestroyAPIView):
     queryset=product.objects.all() 
     serializer_class=productSerialize 
     lookup_field='slug'

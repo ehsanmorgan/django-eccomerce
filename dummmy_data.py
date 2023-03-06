@@ -1,7 +1,7 @@
 
 
 import os,django
-os.environ['DJANGO_SETTINGS_MODULE'] = 'project.settings'
+os.environ['DJANGO_SETTINGS_MODULE'] = 'center.settings'
 django.setup()
 
 from faker import Faker
