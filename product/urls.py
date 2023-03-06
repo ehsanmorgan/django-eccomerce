@@ -5,7 +5,7 @@ app_name='product'
 
 from .views import productList,productDetail,brand_list,brand_detail,add_review
 
-from .api import peoductList_api , productListApi , productDetailApi
+from .api import peoductList_api , productListApi , productDetailApi,BrandListApi,BrandDetailView
 
 
 urlpatterns =[
@@ -24,6 +24,8 @@ urlpatterns =[
     
     #path('api/list',peoductList_api,name='api-list'),
     path('api/list',productListApi.as_view(),name='api-list'),
+    path('api/brandlist',BrandListApi.as_view(),name='api-list'),
+    path('api/brandlist/<slug:slug>',BrandDetailView.as_view(),name='productDetailApi-list'),
     path('api/list/<slug:slug>',productDetailApi.as_view(),name='productDetailApi-list'),
     
 ]
