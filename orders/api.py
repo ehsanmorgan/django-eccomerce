@@ -11,6 +11,9 @@ class orderListAPI(generics.ListAPIView):
     
     
     
+    
+    
+    
 class cartdetailAPI(generics.RetrieveDestroyAPIView):
     def get(self,request,*args,**kwargs):
         user_name=self.kwargs['username']
