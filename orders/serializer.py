@@ -1,16 +1,20 @@
 from rest_framework import serializers
 from .models import order,order_detail,Cart,cart_detail
 
-class orderserializer(serializers.ModelSerializer):
-    class Meta:
-        model=order
-        fields= ['id','odrder_code','order_status','delivery_date','order_date']
-        
-        
+
 class orderDetailSerializer(serializers.ModelSerializer):
     class Meta:
         model=order_detail
         fields= '__all__'
+
+class orderserializer(serializers.ModelSerializer):
+    order_detail=orderDetailSerializer(source='odere_detail',many=True)
+    class Meta:
+        model=order
+        fields= ['id','odrder_code','order_status','delivery_date','order_date','order_detail']
+        
+        
+
         
 class cartdetailSerializer(serializers.ModelSerializer):
     class Meta:
