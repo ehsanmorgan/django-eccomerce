@@ -4,7 +4,13 @@ from .models import order,order_detail,Cart,cart_detail
 class orderserializer(serializers.ModelSerializer):
     class Meta:
         model=order
-        fields='__all__'
+        fields= ['id','odrder_code','order_status','delivery_date','order_date']
+        
+        
+class orderDetailSerializer(serializers.ModelSerializer):
+    class Meta:
+        model=order_detail
+        fields= '__all__'
         
 class cartdetailSerializer(serializers.ModelSerializer):
     class Meta:
@@ -18,9 +24,6 @@ class cartserializer(serializers.ModelSerializer):
         model=Cart
         fields='__all__'
         
-class orderDetailSerializer(serializers.ModelSerializer):
-    class Meta:
-        model=order_detail
-        fields='__all__'
+
         
         

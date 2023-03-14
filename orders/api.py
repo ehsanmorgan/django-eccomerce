@@ -11,6 +11,14 @@ class orderListAPI(generics.ListAPIView):
     queryset=order.objects.all()
     serializer_class=orderserializer
     
+    def list(self,request,*args,**kwargs):
+        user=User.objects.get(username=self.kwargs['username'])
+        queryset=self.get_queryset().filter(user=user)
+        serializer=orderserializer(queryset,many=True)
+        return Response(serializer.data)
+
+        
+    
     
     
     
