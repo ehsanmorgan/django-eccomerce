@@ -6,8 +6,16 @@ class orderserializer(serializers.ModelSerializer):
         model=order
         fields='__all__'
         
+class cartdetailSerializer(serializers.ModelSerializer):
+    class Meta:
+        model=cart_detail
+        fields= ['id','product','price','quantity','total']
+        
         
 class cartserializer(serializers.ModelSerializer):
+    cart_detail=cartdetailSerializer(many=True)
     class Meta:
         model=Cart
         fields='__all__'
+        
+        
