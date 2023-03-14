@@ -20,7 +20,28 @@ class orderListAPI(generics.ListAPIView):
         
     
     
-    
+class createorder(generics.GenericAPIView):
+     def get(self,request,*args,**kwargs):
+        user=User.objects.get(username=self.kwargs['username'])
+        cart1=Cart.objects.get(user=user,cart_status='Inprogress')
+        cart_data=cart_detail.objects.filter(cart=cart1  )
+        
+        
+        new_order=order.objects.create(user=user)
+        for object in cart_data:
+            order_detail.objects.create(
+                order=new_order,
+                product=object.product,
+                price=object.price,
+                quantity=object.quantity,
+                total=object.total,
+            )
+            
+        cart1.cart_status='Completed'
+        cart1.save()
+        
+        return Response({'status':200,'massage':'order created successfully'})
+
     
     
     
