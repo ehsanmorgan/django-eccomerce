@@ -16,6 +16,8 @@ from django.template.loader import render_to_string
 
 
 
+
+
 class productList(ListView):
     model=product
     paginate_by = 50
