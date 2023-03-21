@@ -172,10 +172,10 @@ INTERNAL_IPS = [
 ]
 
 
-#LANGUAGES = [
-    #('de', ('German')),
-    #('en', ('English')),
-#]
+LANGUAGES = [
+    ('ar', ('Arabic')),
+    ('en', ('English')),
+]
 
 
 LOCALE_PATHS=['locale']
