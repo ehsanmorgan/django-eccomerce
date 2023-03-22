@@ -28,6 +28,7 @@ class product(models.Model):
     quantity=models.IntegerField(default=0)
     description=models.TextField(_('description'), max_length=1000)
     slug=models.SlugField(null=True,blank=True)
+    active = models.BooleanField(_('Active'), default=False)
 
 
 
@@ -70,6 +71,7 @@ class Brand(models.Model):
     name=models.CharField(_('name'), max_length=100)
     image=models.ImageField( _('image'), upload_to='brand/')
     slug=models.SlugField(null=True,blank=True)
+    
 
     def __str__(self):
         return self.name

@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     "taggit",
     "product",
     'rest_framework',
+    'tof',
     
 ]
 

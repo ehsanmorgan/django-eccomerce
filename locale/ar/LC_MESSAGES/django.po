@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-03-21 18:42+0100\n"
+"POT-Creation-Date: 2023-03-22 18:15+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,6 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
+
 #: orders/models.py:20
 msgid "Cart"
 msgstr "البطاقه"
@@ -114,3 +115,131 @@ msgstr "التقييم"
 #: product/models.py:90
 msgid "createt_at"
 msgstr "الانشاء"
+
+#: templates/base.html:101
+msgid "offers"
+msgstr "العروض"
+
+#: templates/base.html:102
+msgid " need help"
+msgstr "المساعده"
+
+#: templates/base.html:103 templates/base.html:805
+msgid "contact us"
+msgstr "تواصل معنا"
+
+#: templates/base.html:173
+msgid "home"
+msgstr "الصفحه الريسيه"
+
+#: templates/base.html:177
+msgid "shop"
+msgstr "التسوق"
+
+#: templates/base.html:181
+#, fuzzy
+#| msgid "brand"
+msgid "Brands"
+msgstr "الماركات"
+
+#: templates/base.html:187 templates/base.html:197
+#, fuzzy
+#| msgid "order"
+msgid "Orders"
+msgstr "الطلب"
+
+#: templates/base.html:204 templates/base.html:623
+msgid "email us"
+msgstr "البريد الالكتروني"
+
+#: templates/base.html:616
+#, fuzzy
+#| msgid "email us"
+msgid "call us"
+msgstr "البريد الالكتروني"
+
+#: templates/base.html:629
+msgid "All Rights Reserved by "
+msgstr "كل الحقوق محفوظه"
+
+#: templates/base.html:644
+msgid "Home"
+msgstr "الصفحه الريسيه"
+
+#: templates/base.html:648
+msgid "category"
+msgstr "الفئه"
+
+#: templates/base.html:652
+#, fuzzy
+#| msgid "cart"
+msgid "cartlist"
+msgstr "البطاقه"
+
+#: templates/base.html:657
+msgid "wishlist"
+msgstr ""
+
+#: templates/base.html:683
+msgid "new"
+msgstr "جديد"
+
+#: templates/base.html:712
+msgid "SKU"
+msgstr "الكود"
+
+#: templates/base.html:713
+msgid "BRAND"
+msgstr "الماركه"
+
+#: templates/base.html:830
+msgid "quick Links"
+msgstr "الرابط"
+
+#: templates/base.html:833
+msgid "My Account"
+msgstr "حسابي"
+
+#: templates/base.html:834
+#, fuzzy
+#| msgid "order"
+msgid "Order History"
+msgstr "الطلب"
+
+#: templates/base.html:835
+msgid "Order Tracking"
+msgstr "الطلب"
+
+#: templates/base.html:836
+msgid "Best Seller"
+msgstr "افضل تخفيض"
+
+#: templates/base.html:837
+msgid "New Arrivals"
+msgstr "جديد"
+
+#: templates/base.html:840
+msgid "Location"
+msgstr "الموقع"
+
+#: templates/base.html:841
+msgid "Affiliates"
+msgstr "الشركات التابعة"
+
+#: templates/base.html:842
+#, fuzzy
+#| msgid "contact us"
+msgid "Contact"
+msgstr "تواصل معنا"
+
+#: templates/base.html:843
+msgid "Carrer"
+msgstr "المهنه"
+
+#: templates/base.html:844
+msgid "Faq"
+msgstr "التعليمات"
+
+#: templates/base.html:863
+msgid "All Copyrights Reserved by"
+msgstr "كل الحقوق محفوظه"

@@ -1,0 +1,147 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-03-21 19:49+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: orders/models.py:20
+msgid "Cart"
+msgstr ""
+
+#: orders/models.py:21
+msgid "cart_status"
+msgstr ""
+
+#: orders/models.py:29
+msgid "cart"
+msgstr ""
+
+#: orders/models.py:30 orders/models.py:71 product/models.py:61
+#: product/models.py:87
+msgid "product"
+msgstr ""
+
+#: orders/models.py:31 orders/models.py:72 product/models.py:23
+msgid "price"
+msgstr ""
+
+#: orders/models.py:32 orders/models.py:73
+msgid "quantity"
+msgstr ""
+
+#: orders/models.py:33 orders/models.py:77
+msgid "total"
+msgstr ""
+
+#: orders/models.py:59
+msgid "odrder_code"
+msgstr ""
+
+#: orders/models.py:60
+msgid "order"
+msgstr ""
+
+#: orders/models.py:61
+msgid "order_status"
+msgstr ""
+
+#: orders/models.py:62
+msgid "delivery_date"
+msgstr ""
+
+#: orders/models.py:63
+msgid "order_date"
+msgstr ""
+
+#: orders/models.py:70
+msgid "order_detail"
+msgstr ""
+
+#: product/models.py:20 product/models.py:70
+msgid "name"
+msgstr ""
+
+#: product/models.py:21
+msgid "flag"
+msgstr ""
+
+#: product/models.py:22 product/models.py:62 product/models.py:71
+msgid "image"
+msgstr ""
+
+#: product/models.py:24
+msgid "sku"
+msgstr ""
+
+#: product/models.py:25
+msgid "brand"
+msgstr ""
+
+#: product/models.py:27
+msgid "subtitle"
+msgstr ""
+
+#: product/models.py:29
+msgid "description"
+msgstr ""
+
+#: product/models.py:86
+msgid "reviews"
+msgstr ""
+
+#: product/models.py:88
+msgid "comment"
+msgstr ""
+
+#: product/models.py:89
+msgid "rate"
+msgstr ""
+
+#: product/models.py:90
+msgid "createt_at"
+msgstr ""
+
+#: templates/base.html:100
+msgid "offers"
+msgstr ""
+
+#: templates/base.html:101
+msgid " need help"
+msgstr ""
+
+#: templates/base.html:102
+msgid "contact us"
+msgstr ""
+
+#: templates/base.html:172
+msgid "home"
+msgstr ""
+
+#: templates/base.html:176
+msgid "shop"
+msgstr ""
+
+#: templates/base.html:180
+msgid "Brands"
+msgstr ""
+
+#: templates/base.html:186 templates/base.html:196
+msgid "Orders"
+msgstr ""
+
+#: templates/base.html:203
+msgid "email us"
+msgstr ""

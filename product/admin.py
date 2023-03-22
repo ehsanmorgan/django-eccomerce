@@ -1,4 +1,6 @@
 from django.contrib import admin
+from tof.admin import TofAdmin, TranslationTabularInline
+from tof.decorators import tof_prefetch
 
 # Register your models here.
 from .models import product,product_image,Brand,reviews
