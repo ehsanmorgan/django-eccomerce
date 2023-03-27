@@ -42,7 +42,6 @@ INSTALLED_APPS = [
      "settings",
      "orders",
     'django_filters',
-
     "taggit",
     "product",
     'rest_framework',
