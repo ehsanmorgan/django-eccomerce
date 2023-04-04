@@ -28,7 +28,6 @@ class product(models.Model):
     quantity=models.IntegerField(default=0)
     description=models.TextField(_('description'), max_length=1000)
     slug=models.SlugField(null=True,blank=True)
-    active = models.BooleanField(_('Active'), default=False)
 
 
 

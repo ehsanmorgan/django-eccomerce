@@ -31,7 +31,6 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -46,6 +45,9 @@ INSTALLED_APPS = [
     "product",
     'rest_framework',
     'tof',
+    'modeltranslation',
+    'django.contrib.admin',
+
     
 ]
 
@@ -174,9 +176,14 @@ INTERNAL_IPS = [
 
 
 LANGUAGES = [
-    ('ar', ('Arabic')),
     ('en', ('English')),
+    ('ar', ('Arabic')),
+   
 ]
 
 
 LOCALE_PATHS=['locale']
+
+MODELTRANSLATION_DEFAULT_LANGUAGE = 'en'
+
+MODELTRANSLATION_LANGUAGES = ('en', 'ar')
