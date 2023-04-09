@@ -31,6 +31,7 @@ adresse_choices=(
     ('Other','Other'),
 )
 
+
 class Adresse(models.Model):
     user=models.ForeignKey(User,related_name='user_adresse',on_delete=models.CASCADE)
     tybe=models.CharField(max_length=20,choices=adresse_choices)
