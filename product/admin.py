@@ -1,7 +1,6 @@
 from django.contrib import admin
 from tof.admin import TofAdmin, TranslationTabularInline
 from tof.decorators import tof_prefetch
-from modeltranslation.admin import TranslationAdmin
 from .models import product,product_image,Brand,reviews
 
 

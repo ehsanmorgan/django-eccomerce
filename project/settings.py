@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'tof',
     'modeltranslation',
+    'accounts',
     'django.contrib.admin',
 
     
