@@ -9,6 +9,7 @@ from django.utils.translation import gettext_lazy as _
 
 
 
+
 CART_STATUS=(
     ('Inprogress','Inprogress'),
     ('Completed','Completed'),
