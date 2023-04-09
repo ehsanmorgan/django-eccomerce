@@ -22,6 +22,7 @@ class ContactNumber(models.Model):
     typy=models.CharField(max_length=20,choices=number_choices)
     number=models.CharField(max_length=20)
 
+
 adresse_choices=(
     ('Home','Home'),
     ('Office','Office'),
