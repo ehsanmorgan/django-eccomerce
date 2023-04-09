@@ -16,6 +16,7 @@ number_choices=(
     ('Secondary','Secondary')
 )
 
+
 class ContactNumber(models.Model):
     user=models.ForeignKey(User,related_name='user_number',on_delete=models.CASCADE)
     typy=models.CharField(max_length=20,choices=number_choices)
