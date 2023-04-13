@@ -47,15 +47,26 @@
 
         <!-- CUSTOM -->
         <link rel="stylesheet" href="{% static 'en/css/main.css' %}">
-        <link rel="stylesheet" href="{% static 'css/user-auth.css' %}">
+        <link rel="stylesheet" href="{% static 'en/css/user-auth.css' %}">
         <!--=====================================
                     CSS LINK PART END
         =======================================-->
     </head>
     <body>
-   {% block body %}
-   
-   {% endblock body %}
+
+
+
+
+        =======================================-->
+        <section class="user-form-part">
+            <div class="container">
+              {% block body %}
+
+              {% endblock body %}
+
+            </div>
+        </section>
+
 
 
 
