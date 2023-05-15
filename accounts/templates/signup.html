@@ -1,5 +1,7 @@
 {% extends "accounts.html" %}
 
+{% load django_bootstrap5 %}
+
 {% block body %}
 
 
@@ -26,6 +28,8 @@
                                 </div>
                                 <form class="user-form" method="post">
                                     {% csrf_token %}
+                                    {% bootstrap_form form %}
+
                                    
                                     <div class="form-group">
                                         <input type="password" class="form-control" name="password" placeholder="Enter your password">
@@ -35,8 +39,8 @@
                                        
 
                                     <div class="form-button">
-                                        <button type="submit">login</button>
-                                        <p>Forgot your password?<a href="{% url 'password_reset' %}">reset here</a></p>
+                                        <button type="submit">signup</button>
+                                        <p>Do You Have account?<a href="{% url 'login' %}">login here</a></p>
                                     </div>
                                 </form>
                             </div>

@@ -48,6 +48,8 @@ INSTALLED_APPS = [
     'modeltranslation',
     'accounts',
     'django.contrib.admin',
+     "django_bootstrap5",
+
 
     
 ]
