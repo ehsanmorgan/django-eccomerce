@@ -44,10 +44,10 @@ def activate_code(request,username):
         form=Activatecode(request.POST)
         if form.is_valid():
             code=form.cleaned_data['code']
-            if code==profile.code:
+            if code == profile.code:
                 profile.code = ''
                 profile.save()
-                return redirect('/login')
+                return redirect('/accounts/login')
         
     else:
         form=Activatecode()
