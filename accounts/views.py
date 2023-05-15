@@ -38,6 +38,7 @@ def sing_up(request):
 
 
 
+
 def activate_code(request,username):
     profile=Profile.objects.get(user__username=username)
     if request.method == 'POST':
