@@ -6,6 +6,7 @@ from django.core.mail import send_mail
 # Create your views here.
 
 
+
 def sing_up(request):
     
     if request.method=='POST':
