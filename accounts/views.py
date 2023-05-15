@@ -47,12 +47,10 @@ def activate_code(request,username):
             if code == profile.code:
                 profile.code = ''
                 profile.save()
-                return redirect('/accounts/login')
+                return redirect('/accounts/login/')
         
     else:
         form=Activatecode()
-    
-    
     return render(request,'activate.html',{'form':form})
   
 

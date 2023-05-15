@@ -22,17 +22,9 @@
                                
                             </div>
                             <div class="user-form-group">
-                              
-                              
                                 <form class="user-form" method="post">
                                     {% csrf_token %}
-                                    {% bootstrap_form form %}
-
-                                   
-                                  
-                                    <input type="hidden" name="next" value="{{ next }}">
-                                   
-                                       
+                                        {% bootstrap_form form %}                                       
 
                                     <div class="form-button">
                                         <button type="submit">Activate</button>
