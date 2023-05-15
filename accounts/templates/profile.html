@@ -73,36 +73,24 @@
                             </div>
                             <div class="account-content">
                                 <div class="row">
-                                    <div class="col-md-6 col-lg-4 alert fade show">
-                                        <div class="profile-card contact active">
-                                            <h6>primary</h6>
-                                            <p>+8801838288389</p>
-                                            <ul>
-                                                <li><button class="edit icofont-edit" title="Edit This" data-bs-toggle="modal" data-bs-target="#contact-edit"></button></li>
-                                                <li><button class="trash icofont-ui-delete" title="Remove This" data-bs-dismiss="alert"></button></li>
-                                            </ul>
+                                    
+                                    {% for num in contactnumber  %}
+                                        
+                                    
+                                    
+                                        <div class="col-md-6 col-lg-4 alert fade show">
+                                            <div class="profile-card contact active">
+                                                <h6>{{num.typy}}</h6>
+                                                <p>{{num.number}}</p>
+                                                <ul>
+                                                    <li><button class="edit icofont-edit" title="Edit This" data-bs-toggle="modal" data-bs-target="#contact-edit"></button></li>
+                                                    <li><button class="trash icofont-ui-delete" title="Remove This" data-bs-dismiss="alert"></button></li>
+                                                </ul>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="col-md-6 col-lg-4 alert fade show">
-                                        <div class="profile-card contact">
-                                            <h6>secondary</h6>
-                                            <p>+8801941101915</p>
-                                            <ul>
-                                                <li><button class="edit icofont-edit" title="Edit This" data-bs-toggle="modal" data-bs-target="#contact-edit"></button></li>
-                                                <li><button class="trash icofont-ui-delete" title="Remove This" data-bs-dismiss="alert"></button></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6 col-lg-4 alert fade show">
-                                        <div class="profile-card contact">
-                                            <h6>secondary</h6>
-                                            <p>+8801747875727</p>
-                                            <ul>
-                                                <li><button class="edit icofont-edit" title="Edit This" data-bs-toggle="modal" data-bs-target="#contact-edit"></button></li>
-                                                <li><button class="trash icofont-ui-delete" title="Remove This" data-bs-dismiss="alert"></button></li>
-                                            </ul>
-                                        </div>
-                                    </div>
+
+                                    {% endfor %}
+                                   
                                 </div>
                             </div>
                         </div>
