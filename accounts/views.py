@@ -6,12 +6,21 @@ from.forms import SingupForm,Activatecode
 
 
 def sing_up(request):
-   pass
+    
+    if request.method=='POST':
+        form=SingupForm(request.POST)
+        
+    else:
+        
+        form=SingupForm()
+        
+    return render(request,'signup.html',{'form':form})
 
 
 
 def activate_code(request):
     pass
+  
 
 def profile(request):
     profile=Profile.objects.get(user =request.user)
