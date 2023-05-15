@@ -22,15 +22,19 @@
                                
                             </div>
                             <div class="user-form-group">
+                              
+                               
                                 <form class="user-form" method="post">
                                     {% csrf_token %}
-                                        {% bootstrap_form form %}                                       
-
+                                    {% bootstrap_form form %}
                                     <div class="form-button">
                                         <button type="submit">Activate</button>
-                                        <p>Do You Have account?<a href="{% url 'login' %}">login here</a></p>
                                     </div>
                                 </form>
+                            </div>
+
+                            <div class="form-button">
+                                <p>Do You Have account?<a href="{% url 'login' %}">login here</a></p>
                             </div>
                         </div>
                        
