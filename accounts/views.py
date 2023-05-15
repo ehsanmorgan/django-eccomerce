@@ -40,14 +40,14 @@ def sing_up(request):
 
 def activate_code(request,username):
     profile=Profile.objects.get(user__username=username)
-    if request.method=='POST':
+    if request.method == 'POST':
         form=Activatecode(request.POST)
         if form.is_valid():
             code=form.cleaned_data['code']
             if code==profile.code:
                 profile.code = ''
                 profile.save()
-                return redirect('/accounts/login')
+                return redirect('/login')
         
     else:
         form=Activatecode()
