@@ -26,7 +26,7 @@ def sing_up(request):
                 fail_silently=False,
             )
             
-            return redirect(f'/accounts{username}/activate')
+            return redirect(f'/accounts/{username}/activate')
             
         
     else:
@@ -49,7 +49,6 @@ def activate_code(request,username):
                 return redirect('/accounts/login')
         
     else:
-        
         form=Activatecode()
     
     
