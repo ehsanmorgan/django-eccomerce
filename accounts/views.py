@@ -8,6 +8,6 @@ def sing_up(request):
    pass
 
 def profile(request):
-    
-    return render(request,'profile.html',{})
+    profile=Profile.objects.get(user=request.user)
+    return render(request,'profile.html',{'profile':profile})
 
