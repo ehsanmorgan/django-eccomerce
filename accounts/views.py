@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from.models import Profile,ContactNumber,Adresse
+from.forms import SingupForm,Activatecode
 
 # Create your views here.
 

@@ -10,5 +10,5 @@ class SingupForm(UserCreationForm):
         
         
         
-    class Activate_code(forms.Form):
-        code=forms.CharField(max_length=10)
+class Activatecode(forms.Form):
+    code=forms.CharField(max_length=10)
