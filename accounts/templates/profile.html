@@ -103,36 +103,22 @@
                             </div>
                             <div class="account-content">
                                 <div class="row">
-                                    <div class="col-md-6 col-lg-4 alert fade show">
-                                        <div class="profile-card address active">
-                                            <h6>Home</h6>
-                                            <p>jalkuri, fatullah, narayanganj-1420. word no-09, road no-17/A</p>
-                                            <ul class="user-action">
-                                                <li><button class="edit icofont-edit" title="Edit This" data-bs-toggle="modal" data-bs-target="#address-edit"></button></li>
-                                                <li><button class="trash icofont-ui-delete" title="Remove This" data-bs-dismiss="alert"></button></li>
-                                            </ul>
+                                    
+                                    {% for add  in adresse  %}
+                                        <div class="col-md-6 col-lg-4 alert fade show">
+                                            <div class="profile-card address active">
+                                                <h6>{{add.tybe}}</h6>
+                                                <p>{{add.city}} {{add.street}} {{add.number}}</p>
+                                                <ul class="user-action">
+                                                    <li><button class="edit icofont-edit" title="Edit This" data-bs-toggle="modal" data-bs-target="#address-edit"></button></li>
+                                                    <li><button class="trash icofont-ui-delete" title="Remove This" data-bs-dismiss="alert"></button></li>
+                                                </ul>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="col-md-6 col-lg-4 alert fade show">
-                                        <div class="profile-card address">
-                                            <h6>Office</h6>
-                                            <p>east tejturi bazar, dhaka-1200. word no-04, road no-13/c, house no-4/b</p>
-                                            <ul class="user-action">
-                                                <li><button class="edit icofont-edit" title="Edit This" data-bs-toggle="modal" data-bs-target="#address-edit"></button></li>
-                                                <li><button class="trash icofont-ui-delete" title="Remove This" data-bs-dismiss="alert"></button></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6 col-lg-4 alert fade show">
-                                        <div class="profile-card address">
-                                            <h6>Bussiness</h6>
-                                            <p>kawran bazar, dhaka-1100. word no-02, road no-13/d, house no-7/m</p>
-                                            <ul class="user-action">
-                                                <li><button class="edit icofont-edit" title="Edit This" data-bs-toggle="modal" data-bs-target="#address-edit"></button></li>
-                                                <li><button class="trash icofont-ui-delete" title="Remove This" data-bs-dismiss="alert"></button></li>
-                                            </ul>
-                                        </div>
-                                    </div>
+                                    {% endfor %}
+                                        
+                                  
+                                  
                                 </div>
                             </div>
                         </div>
