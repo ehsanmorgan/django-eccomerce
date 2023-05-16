@@ -21,7 +21,13 @@ class Cart(models.Model):
     user=models.ForeignKey(User,verbose_name=_('Cart'),related_name='user_cart',on_delete=models.SET_NULL,null=True,blank=True)
     cart_status=models.CharField(verbose_name=_('cart_status'),max_length=12,choices=CART_STATUS,default='Inprogress')
     
-
+    def total_cart(self):
+        total=0
+        for product in self.cart_detail.all():
+            total += product.total
+        return round(total,2)
+        
+            
 
 
 
@@ -39,10 +45,10 @@ class cart_detail(models.Model):
         return str(self.cart)
 
 
-    #def save(self, *args, **kwargs):
-        #self.total= self.quantity * self.price
+    def save(self, *args, **kwargs):
+        self.total= self.quantity * self.price
        
-        #super(cart_detail, self).save(*args, **kwargs) 
+        super(cart_detail, self).save(*args, **kwargs) 
 
 
 
