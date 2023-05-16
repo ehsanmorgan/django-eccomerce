@@ -67,4 +67,5 @@ def profile(request):
 
 
 def dashbord(request):
-    pass
+    
+    return render(request,'dashbord.html',{})
