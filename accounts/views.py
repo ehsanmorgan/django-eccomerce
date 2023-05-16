@@ -2,6 +2,9 @@ from django.shortcuts import render,redirect
 from.models import Profile,ContactNumber,Adresse
 from.forms import SingupForm,Activatecode
 from django.core.mail import send_mail
+from django.contrib.auth.models import User
+from product.models import product,Brand,reviews
+from orders.models import order
 
 # Create your views here.
 
@@ -67,5 +70,29 @@ def profile(request):
 
 
 def dashbord(request):
+    user=User.objects.all().count()
+    products=product.objects.all().count()
+    brand=Brand.objects.all().count()
+    review=reviews.objects.all().count()
+    orders=order.objects.all().count()
     
-    return render(request,'dashbord.html',{})
+    recevied=order.objects.filter(order_status='Recevied').count()
+    processed=order.objects.filter(order_status='Processed').count()
+    shipped=order.objects.filter(order_status='Shipped').count()
+    delivered=order.objects.filter(order_status='Delivered').count()
+
+    
+    return render(request,'dashbord.html',{
+        'user':user,
+        'products':products,
+        'brand':brand,
+        'review':review,
+        'orders':orders,
+        
+        'recevied':recevied,
+        'processed':processed,
+        'shipped':shipped,
+        'delivered':delivered
+        
+        
+    })

@@ -45,10 +45,10 @@
     new Chart(ctx, {
       type: 'bar',
       data: {
-        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+        labels: ['user', 'products', 'brand', 'review', 'orders'],
         datasets: [{
           label: '# of Votes',
-          data: [12, 19, 3, 5, 2, 3],
+          data: [{{user}}, {{products}}, {{brand}}, {{review}}, {{orders}}],
           borderWidth: 1
         }]
       },
@@ -65,11 +65,11 @@
     new Chart(ctx2, {
       type: 'pie',
       data: {
-        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+        labels: ['recevied', 'processed', 'shipped', 'delivered'],
         datasets: [{
           label: '# of Votes',
-          data: [12, 19, 3, 5, 2, 3],
-          borderWidth: 1
+          data: [{{recevied}}, {{processed}}, {{shipped}}, {{delivered}}],
+          borderWidth: 5
         }]
       },
       options: {
