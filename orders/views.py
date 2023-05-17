@@ -44,14 +44,14 @@ def chekout(request):
     cart=Cart.objects.get(user=request.user , cart_status='Inprogress')
     cart_details=cart_detail.objects.filter(cart=cart)
     
-    
+    discount = 0
     delivery_fee = 5
     total =  delivery_fee + cart.total_cart()
     sub_total= cart.total_cart()
 
     
     
-    return render(request,'orders/checkout.html',{'cart':cart, 'cart_details':cart_details , 'delivery_fee':delivery_fee ,'total':total })
+    return render(request,'orders/checkout.html',{'cart':cart, 'cart_details':cart_details , 'delivery_fee':delivery_fee ,'total':total , 'discount':discount })
 
 
 

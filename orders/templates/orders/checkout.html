@@ -71,7 +71,7 @@
                                                 <td class="table-serial"><h6>01</h6></td>
                                                 <td class="table-image"><img src="{{item.product.image.url}}" alt="product"></td>
                                                 <td class="table-name"><h6>{{item}}</h6></td>
-                                                <td class="table-price"><h6>${{item.price}}<small>/kilo</small></h6></td>
+                                                <td class="table-price"><h6>$ {{item.price}}<small>/kilo</small></h6></td>
                                                 <td class="table-brand"><h6>{{item.product.brand}}</h6></td>
                                                 <td class="table-quantity"><h6>{{item.quantity}}</h6></td>
                                                 <td class="table-action">
@@ -94,19 +94,19 @@
                                     <ul>
                                         <li>
                                             <span>Sub total</span>
-                                            <span>${{sub_total}}</span>
+                                            <span>$ {{sub_total}}</span>
                                         </li>
                                         <li>
                                             <span>delivery fee</span>
-                                            <span>${{delivery_fee}}</span>
+                                            <span>$ {{delivery_fee}}</span>
                                         </li>
                                         <li>
                                             <span>discount</span>
-                                            <span>$00.00</span>
+                                            <span>$ {{discount}}</span>
                                         </li>
                                         <li>
                                             <span>Total<small>(Incl. VAT)</small></span>
-                                            <span>${{total}}</span>
+                                            <span>$ {{total}}</span>
                                         </li>
                                     </ul>
                                 </div>
