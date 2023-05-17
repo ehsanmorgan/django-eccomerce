@@ -414,7 +414,7 @@
                         </div>
                         <div class="cart-info-group">
                             <div class="cart-info">
-                                <h6><a href="product-single.html">{{item}}</a></h6>
+                                <h6><a href="{% url 'products:product_detail' item.product.slug %}">{{item}}</a></h6>
                                 <p>Unit Price - ${{item.price}}</p>
                             </div>
                             <div class="cart-action-group">

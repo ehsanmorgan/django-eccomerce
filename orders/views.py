@@ -1,4 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
+from product.models import product as Product
+from .models import Cart,cart_detail
 
 
 # Create your views here.
@@ -15,6 +17,7 @@ class order_List(ListView):
     
 def add_to_cart(request):
     pass
+  
 
 
 

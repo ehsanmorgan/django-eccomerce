@@ -99,16 +99,20 @@
                                     <li><a href="#" class="icofont-instagram" title="Instagram"></a></li>
                                 </ul>
                             </div>
-                            <div class="details-add-group">
-                                <button class="product-add" title="Add to Cart">
-                                    <i class="fas fa-shopping-basket"></i>
-                                    <span>add to cart</span>
-                                </button>
-                                <div class="product-action">
-                                    <button class="action-minus" title="Quantity Minus"><i class="icofont-minus"></i></button>
-                                    <input class="action-input" title="Quantity Number" type="text" name="quantity" value="1">
-                                    <button class="action-plus" title="Quantity Plus"><i class="icofont-plus"></i></button>
-                                </div>
+                            <div class="details-add-group row" style="background-color: aliceblue;">
+                                <form  method="post" action="{url 'orders:add_to_cart'}">
+                                    {% csrf_token %}
+                                    <div class="col-lg-6">
+                                        <input style="background-color: aliceblue;" title="Enter Your Quantity" type="text" name="quantity" value="1">
+                                        <input type="hidden" name="product_id" value="{{object.id}}"> 
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <button style="background-color: rgb(154, 195, 231);" type="submit" class="product-add" title="Add to Cart">
+                                            <i class="fas fa-shopping-basket"></i>
+                                            <span >add to cart</span>
+                                        </button>
+                                    </div>
+                                </form>
                             </div>
                             <div class="details-action-group">
                                 <a class="details-wish wish" href="#" title="Add Your Wishlist">

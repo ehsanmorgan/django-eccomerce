@@ -42,7 +42,7 @@ class cart_detail(models.Model):
 
 
     def __str__(self):
-        return str(self.cart)
+        return str(self.product)
 
 
     def save(self, *args, **kwargs):
