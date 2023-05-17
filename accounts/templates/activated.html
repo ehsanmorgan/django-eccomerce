@@ -1,0 +1,35 @@
+{% extends "accounts.html" %}
+
+{% block body %}
+
+
+
+        <section class="user-form-part">
+            <div class="container">
+               
+                <div class="row justify-content-center">
+                    <div class="col-12 col-sm-10 col-md-12 col-lg-12 col-xl-10">
+                        <div class="user-form-logo">
+                            <a href="index.html"><img src="{{data.logo.url}}" alt="logo"></a>
+                        </div>
+                        <div class="user-form-card">
+                            <div class="user-form-title">
+                                <h2>Activated!</h2>
+                                <p>your account is activated</p>
+                            </div>
+                          
+                        </div>
+                        <div class="user-form-remind">
+                            <p>you can login from here?<a href="{% url 'login' %}">login here</a></p>
+                        </div>
+                        <div class="user-form-footer">
+                            <p>Greeny | &COPY; Copyright by <a href="#">{{data.name}}</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+ 
+
+{% endblock %}

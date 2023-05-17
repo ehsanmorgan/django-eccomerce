@@ -51,7 +51,7 @@ def activate_code(request,username):
             if code == profile.code:
                 profile.code = ''
                 profile.save()
-            return redirect('/accounts/login')
+            return redirect('/accounts/activated')
         
     else:
         form=Activatecode()
@@ -66,7 +66,9 @@ def profile(request):
 
 
 
-
+def activated(request):
+    
+    return render(request,'activated.html',{})
 
 
 def dashbord(request):
@@ -96,3 +98,6 @@ def dashbord(request):
         
         
     })
+    
+    
+    
