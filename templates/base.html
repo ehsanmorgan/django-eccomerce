@@ -435,7 +435,7 @@
             </ul>
             <div class="cart-footer">
                 
-                <a class="cart-checkout-btn" href="checkout.html">
+                <a class="cart-checkout-btn" href="{% url 'orders:chekout' %}">
                     <span class="checkout-label">Proceed to Checkout</span>
                     <span class="checkout-price">${{cart.total_cart}}</span>
                 </a>

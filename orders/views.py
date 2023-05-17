@@ -30,8 +30,10 @@ def add_to_cart(request):
 
 
 
-def remover_from_cart(request):
-    pass
+def remover_from_cart(request,id):
+    cart_details=cart_detail.objects.get(id=id)
+    cart_details.delete()
+    return redirect('/products')
 
 
 
@@ -39,7 +41,17 @@ def remover_from_cart(request):
 
 
 def chekout(request):
-    pass
+    cart=Cart.objects.get(user=request.user , cart_status='Inprogress')
+    cart_details=cart_detail.objects.filter(cart=cart)
+    
+    
+    delivery_fee = 5
+    total =  delivery_fee + cart.total_cart()
+    sub_total= cart.total_cart()
+
+    
+    
+    return render(request,'orders/checkout.html',{'cart':cart, 'cart_details':cart_details , 'delivery_fee':delivery_fee ,'total':total })
 
 
 
