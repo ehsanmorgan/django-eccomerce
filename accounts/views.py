@@ -47,11 +47,13 @@ def activate_code(request,username):
     if request.method == 'POST':
         form=Activatecode(request.POST)
         if form.is_valid():
-            code = form.cleaned_data ['code']
-            if code == profile.code:
-                profile.code = ''
-                profile.save()
-            return redirect('/accounts/activated')
+            code = form.cleaned_data['code']
+            if len(code) == 12:
+
+                if code == profile.code:
+                    profile.code = ''
+                    profile.save()
+                return redirect('/accounts/activated')
         
     else:
         form=Activatecode()

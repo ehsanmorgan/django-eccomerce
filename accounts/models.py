@@ -10,7 +10,7 @@ from django.dispatch import receiver
 class Profile(models.Model):
     user=models.OneToOneField(User,related_name='user_profile',on_delete=models.CASCADE)
     image=models.ImageField(upload_to='profile/',default='default.png')
-    code=models.CharField(max_length=20,default=genirite_code)
+    code=models.CharField(max_length=12,default=genirite_code)
 
 
 @receiver(post_save,sender=User)    
