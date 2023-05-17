@@ -100,7 +100,7 @@
                                 </ul>
                             </div>
                             <div class="details-add-group row" style="background-color: aliceblue;">
-                                <form  method="post" action="{url 'orders:add_to_cart'}">
+                                <form  method="post" action="{% url 'orders:add_to_cart' %}">
                                     {% csrf_token %}
                                     <div class="col-lg-6">
                                         <input style="background-color: aliceblue;" title="Enter Your Quantity" type="text" name="quantity" value="1">

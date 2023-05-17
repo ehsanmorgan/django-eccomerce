@@ -45,10 +45,10 @@ class cart_detail(models.Model):
         return str(self.product)
 
 
-    def save(self, *args, **kwargs):
-        self.total= self.quantity * self.price
+    #def save(self, *args, **kwargs):
+        #self.total= self.quantity * self.price
        
-        super(cart_detail, self).save(*args, **kwargs) 
+        #super(cart_detail, self).save(*args, **kwargs) 
 
 
 
