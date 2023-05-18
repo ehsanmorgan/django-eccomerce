@@ -40,7 +40,6 @@ class brandAdmin(admin.ModelAdmin):
     search_fields=['id','name']
     
 admin.site.register(product,productadmin1)
-
 admin.site.register(product_image)
 admin.site.register(Brand,brandAdmin)
 admin.site.register(reviews,ReviewsAdmin)
