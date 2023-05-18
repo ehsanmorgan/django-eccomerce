@@ -66,13 +66,13 @@
 
 
                             <div class="details-rating">
-                                    <i class="icofont-star {% if object.get_avg_rate.rate_avg == 1 or object.get_avg_rate.rate_avg == 2 or object.get_avg_rate.rate_avg == 3 or object.get_avg_rate.rate_avg == 4 or object.get_avg_rate.rate_avg == 5 %}active{% endif %} "></i>
-                                    <i class="icofont-star {% if object.get_avg_rate.rate_avg == 2 or object.get_avg_rate.rate_avg == 3 or object.get_avg_rate.rate_avg == 4 or object.get_avg_rate.rate_avg == 5 %}active{% endif %} "></i>
-                                    <i class="icofont-star {% if object.get_avg_rate.rate_avg == 3 or object.get_avg_rate.rate_avg == 4 or object.get_avg_rate.rate_avg == 5 %}active{% endif %} "></i>
-                                    <i class="icofont-star {% if object.get_avg_rate.rate_avg == 4 or object.get_avg_rate.rate_avg == 5 %}active{% endif %} "></i>
-                                    <i class="icofont-star {% if object.get_avg_rate.rate_avg == 5 %}active{% endif %} "></i>
+                                    <i class="icofont-star {% if object.get_avg_rate.rate_avg > 0 %}active{% endif %} "></i>
+                                    <i class="icofont-star {% if object.get_avg_rate.rate_avg > 1 %}active{% endif %} "></i>
+                                    <i class="icofont-star {% if object.get_avg_rate.rate_avg > 2 %}active{% endif %} "></i>
+                                    <i class="icofont-star {% if object.get_avg_rate.rate_avg > 3 %}active{% endif %} "></i>
+                                    <i class="icofont-star {% if object.get_avg_rate.rate_avg > 4 %}active{% endif %} "></i>
                                     <a href="object-video.html">({{object.product_review.all|length}})</a>
-                                    <p>   </p>
+                                    <p>   {{object.get_avg_rate.rate_avg}}  </p>
                             </div>
                             <h3 class="details-price">
                                 <del>$900</del>
@@ -664,13 +664,13 @@
 
                                 {% for product in object_list %}
                                     <div class="product-rating">
-                                        <i class="icofont-star {% if product.get_avg_rate.rate_avg == 1 or product.get_avg_rate.rate_avg == 2 or product.get_avg_rate.rate_avg == 3 or product.get_avg_rate.rate_avg == 4 or product.get_avg_rate.rate_avg == 5 %}active{% endif %} "></i>
-                                        <i class="icofont-star {% if product.get_avg_rate.rate_avg == 2 or product.get_avg_rate.rate_avg == 3 or product.get_avg_rate.rate_avg == 4 or product.get_avg_rate.rate_avg == 5 %}active{% endif %} "></i>
-                                        <i class="icofont-star {% if product.get_avg_rate.rate_avg == 3 or product.get_avg_rate.rate_avg == 4 or product.get_avg_rate.rate_avg == 5 %}active{% endif %} "></i>
-                                        <i class="icofont-star {% if product.get_avg_rate.rate_avg == 4 or product.get_avg_rate.rate_avg == 5 %}active{% endif %} "></i>
-                                        <i class="icofont-star {% if product.get_avg_rate.rate_avg == 5 %}active{% endif %} "></i>
+                                        <i class="icofont-star {% if product.get_avg_rate.rate_avg > 0 %}active{% endif %} "></i>
+                                        <i class="icofont-star {% if product.get_avg_rate.rate_avg > 1  %}active{% endif %} "></i>
+                                        <i class="icofont-star {% if product.get_avg_rate.rate_avg > 2 %}active{% endif %} "></i>
+                                        <i class="icofont-star {% if product.get_avg_rate.rate_avg > 3 %}active{% endif %} "></i>
+                                        <i class="icofont-star {% if product.get_avg_rate.rate_avg > 4 %}active{% endif %} "></i>
                                         <a href="product-video.html">({{product.product_review.all|length}})</a>
-                                        <p> {{product.get_avg_rate.rate_avg}} </p>
+                                       
                                     </div>
 
                                 {% endfor %}
