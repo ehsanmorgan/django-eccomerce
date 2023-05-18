@@ -8,6 +8,7 @@ class Company(models.Model):
     emails=models.CharField(max_length=30)
     phonse=models.CharField(max_length=30)
     adresse=models.CharField(max_length=30)
+    image=models.ImageField(default='default.png')
 
 
     def __str__(self):

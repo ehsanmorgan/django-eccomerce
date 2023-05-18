@@ -140,16 +140,20 @@
             <div class="container">
                 <div class="header-content">
                     <div class="header-media-group">
-                        <button class="header-user"><img src="images/user.png" alt="user"></button>
+                        <button class="header-user"><img src="{{profile.image.url}}" alt="user"></button>
                         <a href="index.html"><img src="{{data.logo.url}}" alt="logo"></a>
                         <button class="header-src"><i class="fas fa-search"></i></button>
                     </div>
 
-                    <a href="index.html" class="header-logo">
-                        <img src="{{data.logo.url}}" alt="logo">
+                    <a href="{% url 'accounts:profile' %}" class="header-logo">
+                        <img src="{{data.image.url}}" alt="logo">
                     </a>
                     <a href="{% url 'login' %}" class="header-widget" title="My Account">
-                        <img src="{{data.image.url}}" alt="user">
+                            
+                         <div>
+                            <img src="{{item.image.url}}" alt="user">  
+                        </div>
+                            
                         <span>join</span>
                     </a>
 

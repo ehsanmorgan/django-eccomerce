@@ -10,6 +10,7 @@ from orders.models import order
 
 
 
+
 def sing_up(request):
     
     if request.method=='POST':
@@ -61,10 +62,11 @@ def activate_code(request,username):
   
 
 def profile(request):
+    myprofile=Profile.objects.all()
     profile=Profile.objects.get(user =request.user)
     adresse=Adresse.objects.filter(user=request.user)
     contactnumber=ContactNumber.objects.filter(user=request.user)
-    return render(request,'profile.html',{'profile':profile,'adresse':adresse,'contactnumber':contactnumber})
+    return render(request,'profile.html',{ 'myprofile':myprofile,'profile':profile,'adresse':adresse,'contactnumber':contactnumber})
 
 
 
