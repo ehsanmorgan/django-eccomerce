@@ -145,13 +145,15 @@
                         <button class="header-src"><i class="fas fa-search"></i></button>
                     </div>
 
-                    <a href="{% url 'accounts:profile' %}" class="header-logo">
+                    <a href="{% url 'accounts:profile' %}" title="Your Profile" class="header-logo">
                         <img src="{{data.image.url}}" alt="logo">
+                        
+                        
                     </a>
                     <a href="{% url 'login' %}" class="header-widget" title="My Account">
                             
                          <div>
-                            <img src="{{item.image.url}}" alt="user">  
+                            <img src="{{data.image.url}}" alt="user">  
                         </div>
                             
                         <span>join</span>
