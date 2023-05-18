@@ -1,12 +1,13 @@
 
 
 import os,django
-os.environ['DJANGO_SETTINGS_MODULE'] = 'center.settings'
+os.environ['DJANGO_SETTINGS_MODULE'] = 'project.settings'
 django.setup()
 
 from faker import Faker
 import random
-from product.models import product,Brand,reviews
+from product.models import product as Product ,Brand,reviews
+from django.contrib.auth.models import User
 
 
 def seed_brand(n):
@@ -39,7 +40,7 @@ def seed_product(n):
         description=fake.text(max_nb_chars=(1000))
         price=round(random.uniform(400.99,999.99),2)
 
-        product.objects.create(
+        Product.objects.create(
             image=image,
             name=name,
             brand=brand,
@@ -60,21 +61,21 @@ def seed_comment(n):
     for _ in range(n) :
         comment=fake.text(max_nb_chars=20)
         rate=random.randint(1,6)
-        product1=product.objects.get(id=random.randint(600,1600))
+        product=Product.objects.get(id=random.randint(3300,5000))
         
         reviews.objects.create(
             comment=comment,
             rate=rate,
-            product1=product1
+            product=product
             
         )
         
-    print(f"seed{n} comment ...")
+    print(f"Seed{n} Comment ...")
 
 
 
 
 
-seed_brand(20)
-seed_product(1000)
-seed_comment(400)
+#seed_brand(20)
+#seed_product(1000)
+seed_comment(300)
