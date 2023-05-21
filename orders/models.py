@@ -102,3 +102,12 @@ class order_detail(models.Model):
 
         
 
+class Coupon(models.Model):
+    code=models.CharField(max_length=20)
+    from_date=models.DateField(default=timezone.now)
+    to_date=models.DateField(default=timezone.now)
+    quantity=models.IntegerField()
+    value=models.FloatField()
+    
+    def __str__(self):
+        return self.code
