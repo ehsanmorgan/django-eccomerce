@@ -1,6 +1,9 @@
 from django.shortcuts import render,redirect
 from product.models import product as Product
-from .models import Cart,cart_detail
+from .models import Cart,cart_detail,Coupon
+from django.shortcuts import get_object_or_404
+from datetime import datetime
+
 
 
 # Create your views here.
@@ -48,10 +51,22 @@ def chekout(request):
     delivery_fee = 5
     total =  delivery_fee + cart.total_cart()
     sub_total= cart.total_cart()
-
+    
+    if request.method == 'POST':
+        code=request.POST['coupon']
+        coupon=get_object_or_404(Coupon,code=code)
+        today_date=datetime.today().date()
+        if coupon and coupon.quantity > 0:
+            if today_date >= coupon.from_date and today_date <= coupon.to_date:
+                code_value=cart.total_cart() /100 * coupon.value
+                discount=round(code_value,2)
+                total= cart.total_cart() - code_value
+                total=total + delivery_fee
+                
+            
     
     
-    return render(request,'orders/checkout.html',{'cart':cart, 'cart_details':cart_details , 'delivery_fee':delivery_fee ,'total':total , 'discount':discount })
+    return render(request,'orders/checkout.html',{'cart':cart, 'cart_details':cart_details , 'delivery_fee':delivery_fee ,'total':total ,'sub_total':sub_total , 'discount':discount })
 
 
 
