@@ -65,9 +65,9 @@
                                                 <th scope="col">action</th>
                                             </tr>
                                         </thead>
-                                        <tbody>
+                                        <tbody id="all">
                                             {% for item in cart_details %}
-                                            <tr>
+                                                <tr>
                                                 <td class="table-serial"><h6>01</h6></td>
                                                 <td class="table-image"><img src="{{item.product.image.url}}" alt="product"></td>
                                                 <td class="table-name"><h6>{{item}}</h6></td>
@@ -78,38 +78,25 @@
                                                     <a class="view" href="{% url 'products:product_detail' item.product.slug %}" title="Quick View" data-bs-toggle="modal" data-bs-target="#product-view"><i class="fas fa-eye"></i></a>
                                                     <a class="trash" href="{% url 'orders:remover_from_cart' item.id %}" title="Remove Wishlist"><i class="icofont-trash"></i></a>
                                                 </td>
-                                            </tr>
-                                         {% endfor %}
+                                                </tr>
+                                            {% endfor %}
+                                           
+                                          
                                         </tbody>
                                     </table>
                                 </div>
                                 <div class="chekout-coupon">
                                     <button class="coupon-btn">Do you have a coupon code?</button>
-                                    <form class="coupon-form" method="post">
+                                    <form class="coupon-form" method="post" id="add_coupon">
                                         {% csrf_token %}
                                         <input type="text" placeholder="Enter your coupon code" name="coupon">
                                         <button type="submit"><span>apply</span></button>
                                     </form>
                                 </div>
-                                <div class="checkout-charge">
-                                    <ul>
-                                        <li>
-                                            <span>Sub total</span>
-                                            <span>$ {{sub_total}}</span>
-                                        </li>
-                                        <li>
-                                            <span>delivery fee</span>
-                                            <span>$ {{delivery_fee}}</span>
-                                        </li>
-                                        <li>
-                                            <span>discount</span>
-                                            <span>$ {{discount}}</span>
-                                        </li>
-                                        <li>
-                                            <span>Total<small>(Incl. VAT)</small></span>
-                                            <span>$ {{total}}</span>
-                                        </li>
-                                    </ul>
+                                   
+                                <div class="checkout-charge" id="all-code">
+                                    {% include 'inclode/ajax.html' %}
+                                  
                                 </div>
                             </div>
                         </div>
@@ -439,6 +426,41 @@
         <!--=====================================
                     MODAL EDIT FORM END
         =======================================-->
+
+
+
+
+
+
+
+
+
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js" integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
+        <script>
+            $(document).ready(function(e){
+                $(document).on('submit','#add_coupon',function(e){
+                    e.preventDefault();
+                    $.ajax({
+                        type:$(this).attr('method'),
+                        url:$(this).attr('action'),
+                        data:$(this).serialize(),
+                        dataType:'json',
+                        success:function(response){
+                            $('#all-code').html(response['result'])
+                            
+
+                        },
+                        error:function(response){}
+
+
+
+                    })                    
+                })
+            })
+        </script>
 
 
 

@@ -3,6 +3,10 @@ from product.models import product as Product
 from .models import Cart,cart_detail,Coupon
 from django.shortcuts import get_object_or_404
 from datetime import datetime
+from django.http import JsonResponse
+from django.template.loader import render_to_string
+
+
 
 
 
@@ -62,6 +66,8 @@ def chekout(request):
                 discount=round(code_value,2)
                 total= cart.total_cart() - code_value
                 total=total + delivery_fee
+                html = render_to_string('inclode/ajax.html',{'cart':cart, 'cart_details':cart_details , 'delivery_fee':delivery_fee ,'total':total ,'sub_total':sub_total , 'discount':discount})
+                return JsonResponse({'result':html})
                 
             
     
