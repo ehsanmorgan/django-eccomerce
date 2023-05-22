@@ -105,3 +105,12 @@ def dashbord(request):
     
     
     
+    
+    
+from .task import send_bulid_emails
+
+def test_send(request):
+    send_bulid_emails.delay(5)
+    
+    return render(request,'test_celery.html',{})
+    

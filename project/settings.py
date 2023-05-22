@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'accounts',
     'django.contrib.admin',
      "django_bootstrap5",
+     
 
 
     
@@ -198,3 +199,8 @@ LOGIN_REDIRECT_URL = '/'
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 AUTHENTICATION_BACKENDS=['accounts.backends.EmailBackend']
+
+
+
+BROKER_URL = 'redis://localhost:6379'
+CELERY_RESULT_BACKEND = 'redis://localhost:6379' 
