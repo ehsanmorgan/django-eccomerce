@@ -9,11 +9,14 @@ from .models import product,reviews
 from .models import Brand
 from django.http import JsonResponse
 from django.template.loader import render_to_string
+from django.views.decorators.cache import cache_page
 
 
 
-
-
+@cache_page(60*1)
+def productlist(request):
+    data = product.objects.all()
+    return render(request,'product/productlist.html',{'data':data})
 
 
 
