@@ -1,9 +1,5 @@
 version: '3.10'
 
-
-
-
-
 services:
   djangoserver:
     build: .
@@ -15,23 +11,24 @@ services:
     container_name: mydjango
 
 
-redis:
-image: redis:alpine
-container_name: redisserver
+
+ 
+  redis:
+    image: redis:alpine
+    container_name: redisserver
 
 
 
-celery:
-  image: celery:alpine
-  container_name: celeryserver
-  command: celery -A project worker -l info 
-  volumes:
-    - .:/app
-  restart: always
-  bulid: 
-    context: .
-
-  debend_on:
-    djangoserver
-    redis
+  celery:
+    image: celery:alpine
+    container_name: celeryserver
+    command: celery -A project worker -l info
+    volumes:
+      - .:/app
+    restart: always
+    build: 
+      context: .
+    depends_on:
+      - djangoserver
+      - redis
 
