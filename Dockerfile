@@ -16,5 +16,6 @@ COPY requirements.txt /app/requirements.txt
 # install libraries
 RUN pip install -r /app/requirements.txt
 
+
 # copy all folder 
 COPY . /app/
