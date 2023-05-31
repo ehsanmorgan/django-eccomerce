@@ -11,6 +11,10 @@ class Company(models.Model):
     image=models.ImageField(default='default.png')
 
 
+
+
+
+
     def __str__(self):
         return self.name
 
