@@ -51,7 +51,9 @@ INSTALLED_APPS = [
     'modeltranslation',
     'accounts',
     'django.contrib.admin',
-     "django_bootstrap5",
+    "django_bootstrap5",
+    'corsheaders', 
+
      
 
 
@@ -77,7 +79,8 @@ MIDDLEWARE = [
     "debug_toolbar.middleware.DebugToolbarMiddleware",
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    
+    'corsheaders.middleware.CorsMiddleware',
+
 ]
 
 ROOT_URLCONF = 'project.urls'
@@ -253,3 +256,6 @@ CACHES = {
 
 
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+
+
+CSRF_TRUSTED_ORIGINS = ['https://create-shopping-app-using-django-production.up.railway.app']
