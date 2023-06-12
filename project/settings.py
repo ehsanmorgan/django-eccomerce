@@ -258,4 +258,4 @@ CACHES = {
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 
-CSRF_TRUSTED_ORIGINS = ['https://create-shopping-app-using-django-production.up.railway.app']
+CSRF_TRUSTED_ORIGINS = ['https://django-eccomerce-production.up.railway.app']
