@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-8e+!tjt7o!(n=d8153emh#iwqbe@io!*%4+0r@%b35*w4w+n26
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 
@@ -68,6 +68,7 @@ REST_FRAMEWORK = {
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    "whitenoise.middleware.WhiteNoiseMiddleware",
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.locale.LocaleMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -168,6 +169,7 @@ STATICFILES_DIRS = [
     BASE_DIR / "static",
 ]
 
+STATIC_ROOT = BASE_DIR / "staticfiles"
 
 MEDIA_URL='media/'
 MEDIA_ROOT=BASE_DIR/'media'
@@ -244,3 +246,10 @@ CACHES = {
         "LOCATION": "redis://127.0.0.1:6379",
     }
 }
+
+
+
+
+
+
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
