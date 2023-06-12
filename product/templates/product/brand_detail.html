@@ -12,10 +12,6 @@
 
 {% block body %}
 
-
-
-
-
         <!--=====================================
                     BANNER PART START
         =======================================-->
@@ -95,7 +91,7 @@
                                             <button class="product-wish wish">
                                                 <i class="fas fa-heart"></i>
                                             </button>
-                                            <a class="product-image" href="product-video.html">
+                                            <a class="product-image" href="{% url 'product:product_detail' item.slug %}">
                                                 <img src="{{item.image.url}}"  alt="product">
                                             </a>
                                             <div class="product-widget">
@@ -115,7 +111,7 @@
                                                 <p> {{item.get_avg_rate.rate_avg}} </p>
                                             </div>
                                             <h6 class="product-name">
-                                                <a href="product-video.html">{{item}}</a>
+                                                <a href="{% url 'product:product_detail' item.slug %}">{{item}}</a>
                                             </h6>
                                             <h6 class="product-price">
                                                 <del></del>
@@ -134,7 +130,6 @@
                                     </div>
                                 </div>
                         {% endfor %}
-                       
                     </div>
                 {% if is_paginated %}
                     <div class="row">

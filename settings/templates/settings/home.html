@@ -18,11 +18,11 @@
                                 <h1>free home delivery within 24 hours now.</h1>
                                 <p>Lorem ipsum dolor consectetur adipisicing elit modi consequatur eaque expedita porro necessitatibus eveniet voluptatum quis pariatur Laboriosam molestiae architecto excepturi</p>
                                 <div class="banner-btn">
-                                    <a class="btn btn-inline" href="shop-4column.html">
+                                    <a class="btn btn-inline" href="{% url 'product:product_list'  %}">
                                         <i class="fas fa-shopping-basket"></i>
                                         <span>shop now</span>
                                     </a>
-                                    <a class="btn btn-outline" href="offer.html">
+                                    <a class="btn btn-outline" href="{% url 'product:product_list'  %}">
                                         <i class="icofont-sale-discount"></i>
                                         <span>get offer</span>
                                     </a>
@@ -50,11 +50,11 @@
                                 <h1>free home delivery within 24 hours now.</h1>
                                 <p>Lorem ipsum dolor consectetur adipisicing elit modi consequatur eaque expedita porro necessitatibus eveniet voluptatum quis pariatur Laboriosam molestiae architecto excepturi</p>
                                 <div class="banner-btn">
-                                    <a class="btn btn-inline" href="shop-4column.html">
+                                    <a class="btn btn-inline" href="{% url 'product:product_list'  %}">
                                         <i class="fas fa-shopping-basket"></i>
                                         <span>shop now</span>
                                     </a>
-                                    <a class="btn btn-outline" href="offer.html">
+                                    <a class="btn btn-outline" href="{% url 'product:product_list'  %}">
                                         <i class="icofont-sale-discount"></i>
                                         <span>get offer</span>
                                     </a>
@@ -79,7 +79,7 @@
 
                     {% for brand in brands %}
                             <li>
-                                <a class="suggest-card" href="shop-4column.html">
+                                <a class="suggest-card" href="{% url 'product:brand_list'  %}">
                                     <img src="{{ brand.image.url  }}" alt="suggest" style="width:240px; height:160px;">
                                     <h5>{{ brand }} <span>{{ brand.product_count }} items</span></h5>
                                 </a>

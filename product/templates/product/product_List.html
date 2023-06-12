@@ -72,7 +72,7 @@
                                 <button class="product-wish wish">
                                     <i class="fas fa-heart"></i>
                                 </button>
-                                <a class="product-image" href="product-video.html">
+                                <a class="product-image" href="{% url 'product:product_detail' product.slug %}">
                                     <img src="{{product.image.url}}" style="width:260px;height:140px;" alt="product">
 
                                     
