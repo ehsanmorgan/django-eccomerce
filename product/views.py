@@ -84,3 +84,11 @@ class brand_detail(ListView):
         print(f'Brand:{data.image}')
         context['brand']=data
         return context
+    
+    
+
+
+class SearchResultsView(ListView):
+    model = product
+    template_name ='search-product.html'
+ 
