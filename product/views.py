@@ -10,6 +10,7 @@ from .models import Brand
 from django.http import JsonResponse
 from django.template.loader import render_to_string
 from django.views.decorators.cache import cache_page
+from .fillters import Searchfilter
 
 
 
@@ -88,7 +89,16 @@ class brand_detail(ListView):
     
 
 
-class SearchResultsView(ListView):
-    model = product
-    template_name ='search-product.html'
+
+
+
+def search_filter(request):
+    search_product=product.objects.all()
+    myfilter= Searchfilter(request.GET,queryset=search_product)
+    context= {'myfilter':myfilter}
+    
+    return render(request,'search-product.html',context)
+    
+    
+
  

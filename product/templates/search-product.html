@@ -4,10 +4,26 @@
 
 {% block body %}
 
+<div class="container">
 
+    <form class="header-form" method="get" >
+        {{myfilter.form}}
 
+        <input type="submit" value="Search" name="" >
+    </form>
 
-
+    <form method="get">
+    
+        {% for item in myfilter.queryset  %}
+            <table>
+                <li>
+                {{item.name}}
+                </li>
+            </table>
+        {% endfor %}
+            
+    </form>
+</div>
 
 
 

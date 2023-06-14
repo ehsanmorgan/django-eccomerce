@@ -3,7 +3,7 @@ from django.urls import path
 
 app_name='product'
 
-from .views import productList,productDetail,brand_list,brand_detail,add_review,productlist,SearchResultsView
+from .views import productList,productDetail,brand_list,brand_detail,add_review,productlist,search_filter
 
 from .api import peoductList_api , productListApi , productDetailApi,BrandListApi,BrandDetailView
 
@@ -17,7 +17,7 @@ urlpatterns =[
     path('brands/',brand_list.as_view(),name='brand_list'),
     path('brands/<slug:slug>',brand_detail.as_view(),name='brand_detail'),
     path('debug/',productlist,name='debug'),
-    path('search/',SearchResultsView.as_view(),name='search_results'),
+    path('search/',search_filter,name='search_results'),
     
     
     
