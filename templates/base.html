@@ -199,11 +199,30 @@
                             <ul class="navbar-list">
                                 <li class="navbar-item dropdown">
                                     <a class="navbar-link " href="{% url 'settings:home' %}"> {% translate "home" %} </a>
+                                    
                                    
                                 </li>
                                 <li class="navbar-item dropdown-megamenu">
                                     <a class="navbar-link" href="{% url 'products:product_list' %}"> {% translate "shop" %} </a>
-                                  
+                                    <div class="megamenu">
+                                        <div class="container">
+                                            <div class="row">
+                                                <div class="col-lg-3">
+                                                    <div class="megamenu-wrap">
+                                                        <h5 class="megamenu-title">shop pages</h5>
+                                                        <ul class="megamenu-list">
+                                                            <li><a href="shop-5column.html">shop 5 column</a></li>
+                                                            <li><a href="{% url 'products:shop_colum4' %}">shop 4 column</a></li>
+                                                            <li><a href="{% url 'products:shop_colum3' %}">shop 3 column</a></li>
+                                                            <li><a href="shop-2column.html">shop 2 column</a></li>
+                                                            <li><a href="shop-1column.html">shop 1 column</a></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                               
+                                            </div>
+                                        </div>
+                                    </div>
                                 </li>
                                 <li class="navbar-item dropdown-megamenu">
                                     <a class="navbar-link " href="{% url 'products:brand_list' %}"> {% translate "Brands" %} </a>

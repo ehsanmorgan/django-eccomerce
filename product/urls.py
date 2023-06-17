@@ -3,7 +3,8 @@ from django.urls import path
 
 app_name='product'
 
-from .views import productList,productDetail,brand_list,brand_detail,add_review,productlist,search_filter
+from .views import productList,productDetail,brand_list,brand_detail,add_review,productlist,search_filter,shop_colum4,shop_colum3
+
 
 from .api import peoductList_api , productListApi , productDetailApi,BrandListApi,BrandDetailView
 
@@ -18,6 +19,8 @@ urlpatterns =[
     path('brands/<slug:slug>',brand_detail.as_view(),name='brand_detail'),
     path('debug/',productlist,name='debug'),
     path('search/',search_filter,name='search_results'),
+    path('shop_colum4/',shop_colum4,name='shop_colum4'),
+    path('shop_colum3/',shop_colum3,name='shop_colum3'),
     
     
     

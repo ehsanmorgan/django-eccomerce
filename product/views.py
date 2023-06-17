@@ -102,3 +102,14 @@ def search_filter(request):
     
 
  
+def shop_colum4(request):
+    shop=product.objects.all()[50]
+    return render(request,'product/shop-4column.html',{'shop':shop})
+
+
+
+
+ 
+def shop_colum3(request):
+    shop=product.objects.all()[50]
+    return render(request,'product/shop-3column.html',{'shop':shop})
