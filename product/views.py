@@ -103,7 +103,7 @@ def search_filter(request):
 
  
 def shop_colum4(request):
-    shop=product.objects.all()[50]
+    shop=product.objects.filter()[:48]
     return render(request,'product/shop-4column.html',{'shop':shop})
 
 
@@ -113,3 +113,13 @@ def shop_colum4(request):
 def shop_colum3(request):
     shop=product.objects.all()[50]
     return render(request,'product/shop-3column.html',{'shop':shop})
+
+
+def shop_colum2(request):
+    shop=product.objects.all()[50]
+    return render(request,'product/shop-2column.html',{'shop':shop})
+
+
+def shop_colum1(request):
+    shop=product.objects.all()[50]
+    return render(request,'product/shop-1column.html',{'shop':shop})
