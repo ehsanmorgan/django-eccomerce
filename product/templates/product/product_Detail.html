@@ -34,22 +34,22 @@
                     <div class="col-lg-6">
                         <div class="details-gallery">
                             <div class="details-label-group">
-                                <label class="details-label new">new</label>
-                                <label class="details-label off">-10%</label>
+                                <label class="details-label new">{{object.flag}}</label>
+                                
                             </div>
                             <ul class="details-preview"> 
 
-                                {% for img in object.product_image.all %}
-                                    <li><img src="{{img.image.url}}" style="width:240px;height:160ppx;" alt="product"></li>
+                                
+                                    <li><img src="{{object.image.url}}" style="width:240px;height:160ppx;" alt="product"></li>
                                     
-                                {% endfor %}
+                                
                                 
                                
                             </ul>
                             <ul class="details-thumb">
-                                {% for img in object.product_image.all %}
-                                    <li><img src="{{img.image.url}}" style="width:240px;height:160ppx;" alt="product"></li>
-                                {% endfor %}
+                               
+                                    <li><img src="{{object.image.url}}" style="width:240px;height:160ppx;" alt="product"></li>
+                                
                                 
                                 
                             </ul>
