@@ -105,7 +105,7 @@ def search_filter(request):
 
  
 def shop_colum4(request):
-    shop=product.objects.filter()[:48]
+    shop=product.objects.filter()[:20]
     page = request.GET.get('page', 1)
     paginator = Paginator(shop, 10)
     try:
@@ -133,5 +133,5 @@ def shop_colum2(request):
 
 
 def shop_colum1(request):
-    shop=product.objects.all()[50]
+    shop=product.objects.all()[:20]
     return render(request,'product/shop-1column.html',{'shop':shop})
