@@ -525,53 +525,28 @@
 
                             {% endfor %}
                         </div>
-                    {% if is_paginated %}
-                        <div class="row">
-        
-                            
-                            <div class="col-lg-12">
-                                <div class="bottom-paginate">
-                                    <p class="page-info">Showing 12 of 60 Results</p>
-                                    <ul class="pagination">
-                                        {% if page_obj.has_previous %}
-                                                <li class="page-item">
-        
-                                                        <a class="page-link" href="?page={{ page_obj.previous_page_number }}">
-                                                        <i class="fas fa-long-arrow-alt-left"></i>
-                                                    </a>
-                                                </li>
-                                            {% endif %}
-        
-        
-                                                {% for i in paginator.page_range %}
-                                                    {% if page_obj.number == i %}
-        
-        
-                                                            <li class="page-item"><a class="page-link active" href="#">{{ i }}</a></li>
-        
-                                                        {% elif i > page_obj.number|add:'-5' and i < page_obj.number|add:'5 ' %}
-        
-                                                            <li class="page-item"><a class="page-link" href="?page={{ i }}">{{ i }}</a> </li>
-        
-                                                        {% endif %}
-                                                {% endfor %}
-        
-                                            {% if page_obj.has_next %}
-        
-                                                <li class="page-item">
-                                                    <a class="page-link" href="?page={{ page_obj.next_page_number }}">
-        
-                                                        <i class="fas fa-long-arrow-alt-right"></i>
-                                                    </a>
-                                                </li>
-                                            {% endif %}
-        
-                                        </ul>
-                                    </div>
-                                </div>
-                            
-                        </div>
+                    {% if users.has_other_pages %}
+                        <ul class="pagination">
+                          {% if users.has_previous %}
+                            <li><a href="?page={{ users.previous_page_number }}">&laquo;</a></li>
+                          {% else %}
+                            <li class="disabled"><span>&laquo;</span></li>
+                          {% endif %}
+                          {% for i in users.paginator.page_range %}
+                            {% if users.number == i %}
+                              <li class="active"><span>{{ i }} <span class="sr-only">(current)</span></span></li>
+                            {% else %}
+                              <li><a href="?page={{ i }}">{{ i }}</a></li>
+                            {% endif %}
+                          {% endfor %}
+                          {% if users.has_next %}
+                            <li><a href="?page={{ users.next_page_number }}">&raquo;</a></li>
+                          {% else %}
+                            <li class="disabled"><span>&raquo;</span></li>
+                          {% endif %}
+                        </ul>
                     {% endif %}
+                      
                     </div>
                 </div>
                

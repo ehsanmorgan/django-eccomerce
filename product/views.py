@@ -11,6 +11,8 @@ from django.http import JsonResponse
 from django.template.loader import render_to_string
 from django.views.decorators.cache import cache_page
 from .fillters import Searchfilter
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+
 
 
 
@@ -104,7 +106,17 @@ def search_filter(request):
  
 def shop_colum4(request):
     shop=product.objects.filter()[:48]
-    return render(request,'product/shop-4column.html',{'shop':shop})
+    page = request.GET.get('page', 1)
+    paginator = Paginator(shop, 10)
+    try:
+        users = paginator.page(page)
+    except PageNotAnInteger:
+        users = paginator.page(1)
+    except EmptyPage:
+        users = paginator.page(paginator.num_pages)
+
+
+    return render(request,'product/shop-4column.html',{'shop':shop , 'users':users})
 
 
 
