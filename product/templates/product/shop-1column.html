@@ -791,8 +791,8 @@
                                                 <a href="product-video.html">{{item.name}}</a>
                                             </h4>
                                             <h5 class="standard-price">
-                                                <del>${{item.price}}</del>
-                                                <span>$28<small>/piece</small></span>
+                                                <del></del>
+                                                <span>${{item.price}}<small>/piece</small></span>
                                             </h5>
                                             <div class="standard-rating">
                                                 <i class="active icofont-star"></i>
@@ -831,7 +831,7 @@
                             
                             <div class="col-lg-12">
                                 <div class="bottom-paginate">
-                                    <p class="page-info">Showing 20 of 40 Results</p>
+                                    <p class="page-info">Showing 6 of 12 Results</p>
                                     <ul class="pagination">
                                         {% if users.has_previous %}
                                                 <li class="page-item">
@@ -840,7 +840,7 @@
                                                         <i class="fas fa-long-arrow-alt-left"></i>
                                                     </a>
                                                 </li>
-                                            {% endif %}
+                                        {% endif %}
         
         
                                                 {% for i in users.paginator.page_range %}
@@ -849,11 +849,11 @@
         
                                                             <li class="page-item"><a class="page-link active" href="#">{{ i }}</a></li>
         
-                                                        {% elif i > users.number|add:'-5' and i < users.number|add:'5 ' %}
+                                                        {% elif i > users.number|add:'-4' and i < users.number|add:'4 ' %}
         
                                                             <li class="page-item"><a class="page-link" href="?page={{ i }}">{{ i }}</a> </li>
         
-                                                        {% endif %}
+                                                    {% endif %}
                                                 {% endfor %}
         
                                             {% if users.has_next %}

@@ -123,15 +123,25 @@ def shop_colum4(request):
 
  
 def shop_colum3(request):
-    shop=product.objects.all()[50]
+    shop=product.objects.all()[:50]
     return render(request,'product/shop-3column.html',{'shop':shop})
 
 
 def shop_colum2(request):
-    shop=product.objects.all()[50]
+    shop=product.objects.all()[:50]
     return render(request,'product/shop-2column.html',{'shop':shop})
 
 
 def shop_colum1(request):
-    shop=product.objects.all()[:20]
-    return render(request,'product/shop-1column.html',{'shop':shop})
+    shop=product.objects.all() [:6]
+    page = request.GET.get('page', 1)    
+    paginator = Paginator(shop, 5)
+    try:
+        users = paginator.page(page)
+    except PageNotAnInteger:
+        users = paginator.page(1)
+    except EmptyPage:
+        users = paginator.page(paginator.num_pages)
+   
+        
+    return render(request,'product/shop-1column.html',{'shop':shop , 'users':users})

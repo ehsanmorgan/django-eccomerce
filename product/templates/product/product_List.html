@@ -100,10 +100,17 @@
                                     <del></del>
                                     <span>${{product.price}}<small>/piece</small></span>
                                 </h6>
-                                <button class="product-add" title="Add to Cart">
+                            <form method="post" action="{% url 'orders:add_to_cart'%}">
+                                {% csrf_token %}
+                                <input style="background-color: aliceblue;" title="Enter Your Quantity" type="text" name="quantity" value="1">
+
+                                <input type="hidden" name="product_id" value="{{product.id}}"> 
+
+                                <button type="submit" class="product-add" title="Add to Cart">
                                     <i class="fas fa-shopping-basket"></i>
                                     <span>add</span>
                                 </button>
+                            </form>
                                 <div class="product-action">
                                     <button class="action-minus" title="Quantity Minus"><i class="icofont-minus"></i></button>
                                     <input class="action-input" title="Quantity Number" type="text" name="quantity" value="1">
