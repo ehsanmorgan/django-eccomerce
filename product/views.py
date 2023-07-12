@@ -5,32 +5,34 @@ from django.db.models import Value,F,Q,Func,DecimalField,FloatField,ExpressionWr
 from django.db.models.functions import Concat
 from django.views.generic import ListView,DetailView
 from .forms import productReviewsForm
-from .models import product,reviews
+from .models import product as Product,reviews
 from .models import Brand
 from django.http import JsonResponse
 from django.template.loader import render_to_string
 from django.views.decorators.cache import cache_page
 from .fillters import Searchfilter
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from django.shortcuts import get_object_or_404
+
 
 
 
 
 @cache_page(60*1)
 def productlist(request):
-    data = product.objects.all()
+    data = Product.objects.all()
     return render(request,'product/productlist.html',{'data':data})
 
 
 
 
 class productList(ListView):
-    model=product
+    model=Product
     paginate_by = 50
 
 
 class productDetail(DetailView):
-    model=product
+    model=Product
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context["reviews_1"] = reviews.objects.filter(product=self.get_object())
@@ -46,7 +48,7 @@ class productDetail(DetailView):
 
 
 def add_review(request,slug):
-    product_1=product.objects.get(slug=slug)
+    product_1=Product.objects.get(slug=slug)
     if request.method =='POST':
         form=productReviewsForm(request.POST)
         if form.is_valid():
@@ -69,14 +71,14 @@ class brand_list(ListView):
 
 
 class brand_detail(ListView):
-    model=product
+    model=Product
     paginate_by = 50
     template_name='product/brand_detail.html'
 
 
     def get_queryset(self):
         brand=Brand.objects.get(slug=self.kwargs['slug'])
-        queryset=product.objects.filter(brand=brand)
+        queryset=Product.objects.filter(brand=brand)
         return queryset
 
 
@@ -95,7 +97,7 @@ class brand_detail(ListView):
 
 
 def search_filter(request):
-    search_product=product.objects.all()
+    search_product=Product.objects.all()
     myfilter= Searchfilter(request.GET,queryset=search_product)
     context= {'myfilter':myfilter}
     
@@ -105,7 +107,7 @@ def search_filter(request):
 
  
 def shop_colum4(request):
-    shop=product.objects.filter()[:20]
+    shop=Product.objects.filter()[:20]
     page = request.GET.get('page', 1)
     paginator = Paginator(shop, 10)
     try:
@@ -123,17 +125,17 @@ def shop_colum4(request):
 
  
 def shop_colum3(request):
-    shop=product.objects.all()[:50]
+    shop=Product.objects.all()[:50]
     return render(request,'product/shop-3column.html',{'shop':shop})
 
 
 def shop_colum2(request):
-    shop=product.objects.all()[:50]
+    shop=Product.objects.all()[:50]
     return render(request,'product/shop-2column.html',{'shop':shop})
 
 
 def shop_colum1(request):
-    shop=product.objects.all() [:6]
+    shop=Product.objects.all() [:6]
     page = request.GET.get('page', 1)    
     paginator = Paginator(shop, 5)
     try:
@@ -145,3 +147,18 @@ def shop_colum1(request):
    
         
     return render(request,'product/shop-1column.html',{'shop':shop , 'users':users})
+
+
+
+
+
+def wish_list(request,slug):
+
+   item = get_object_or_404(slug=slug)
+
+   wished_item,created = Product.objects.get_or_create(wished_item=item,
+   slug = item.slug,
+   user = request.user,
+   )
+
+   return redirect('products/product_detail',slug=slug)

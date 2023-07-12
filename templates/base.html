@@ -170,7 +170,7 @@
                             <i class="fas fa-random"></i>
                             <sup>0</sup>
                         </a>
-                        <a href="wishlist.html" class="header-widget" title="Wishlist">
+                        <a href="{% url 'products:wish_list' %}" class="header-widget" title="Wishlist">
                             <i class="fas fa-heart"></i>
                             <sup>0</sup>
                         </a>
@@ -546,7 +546,7 @@
                         <ul class="dropdown-list">
                             <li><a href="profile.html">profile</a></li>
                             <li><a href="wallet.html">wallet</a></li>
-                            <li><a href="wishlist.html">wishlist</a></li>
+                            <li><a href="{% url 'products:wish_list' %}">wishlist</a></li>
                             <li><a href="compare.html">compare</a></li>
                             <li><a href="checkout.html">checkout</a></li>
                             <li><a href="orderlist.html">order history</a></li>
@@ -624,7 +624,7 @@
                 <span>{% translate "cartlist" %}</span>
                 <sup>9+</sup>
             </button>
-            <a href="wishlist.html" title="Wishlist">
+            <a href="{% url 'products:wish_list' %}" title="Wishlist">
                 <i class="fas fa-heart"></i>
                 <span>{% translate "wishlist" %}</span>
                 <sup>0</sup>
@@ -726,7 +726,7 @@
                                         </div>
                                     </div>
                                     <div class="view-action-group">
-                                        <a class="view-wish wish" href="#" title="Add Your Wishlist">
+                                        <a class="view-wish wish" href="{% url 'products:wish_list' %}" title="Add Your Wishlist">
                                             <i class="icofont-heart"></i>
                                             <span>add to wish</span>
                                         </a>
