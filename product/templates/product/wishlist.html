@@ -50,11 +50,11 @@
                                             
                                         
                                             <tr>
-                                                <td class="table-serial"><h6>{{item.slug}}</h6></td>
-                                                <td class="table-image"><img src="images/product/01.jpg" alt="product"></td>
-                                                <td class="table-name"><h6>{{item.user}}</h6></td>
-                                                <td class="table-price"><h6>{{item.price}}<small>/kilo</small></h6></td>
-                                                <td class="table-desc"><p>Lorem ipsum nobis eaque excepturi nisi eveniet...<a href="product-video.html">read more</a></p></td>
+                                                <td class="table-serial"><h6>{{item.product_wishlist.slug}}</h6></td>
+                                                <td class="table-image"><img src="{{item.product_wishlist.image.url}}" alt="product"></td>
+                                                <td class="table-name"><h6>{{item.product_wishlist.user}}</h6></td>
+                                                <td class="table-price"><h6>{{item.product_wishlist.price}}<small>/kilo</small></h6></td>
+                                                <td class="table-desc"><p>{{item.product_wishlist.description}}<a href="product-video.html">read more</a></p></td>
                                                 <td class="table-status"><h6 class="stock-out">stock out</h6></td>
                                                 <td class="table-shop">
                                                     <button class="product-add" title="Add to Cart">add to cart</button>
