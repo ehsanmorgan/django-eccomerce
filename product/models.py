@@ -101,7 +101,9 @@ class reviews(models.Model):
 
 
 
-
+class WishProduct(models.Model):
+    user=models.ForeignKey(User,related_name='wishproductuser',on_delete=models.SET_NULL,null=True,blank=True)
+    product_wishlist=models.ForeignKey(product,related_name='product_wishlist',on_delete=models.CASCADE)
 
   
         

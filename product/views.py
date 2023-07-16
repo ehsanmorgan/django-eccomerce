@@ -5,7 +5,7 @@ from django.db.models import Value,F,Q,Func,DecimalField,FloatField,ExpressionWr
 from django.db.models.functions import Concat
 from django.views.generic import ListView,DetailView
 from .forms import productReviewsForm
-from .models import product as Product,reviews,WishList
+from .models import product as Product,reviews,WishProduct
 from .models import Brand
 from django.http import JsonResponse
 from django.template.loader import render_to_string
@@ -152,6 +152,6 @@ def shop_colum1(request):
 
 
 def add_to_wishlist(request):
-    wishlist=WishList.objects.all()
+    wishlist=WishProduct.objects.all()
     
     return render(request,'product/wishlist.html',{'wishlist':wishlist})
