@@ -31,6 +31,8 @@ class productListApi(generics.ListCreateAPIView):
         
         
         
+        
+        
 class productDetailApi(generics.RetrieveUpdateDestroyAPIView):
     queryset=product.objects.all() 
     serializer_class=productDetailSerialize 
