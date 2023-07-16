@@ -12,7 +12,6 @@ from django.template.loader import render_to_string
 from django.views.decorators.cache import cache_page
 from .fillters import Searchfilter
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
-from django.shortcuts import get_object_or_404
 
 
 
@@ -147,18 +146,3 @@ def shop_colum1(request):
    
         
     return render(request,'product/shop-1column.html',{'shop':shop , 'users':users})
-
-
-
-
-
-def wish_list(request,slug):
-
-   item = get_object_or_404(slug=slug)
-
-   wished_item,created = Product.objects.get_or_create(wished_item=item,
-   slug = item.slug,
-   user = request.user,
-   )
-
-   return redirect('products/product_detail',slug=slug)

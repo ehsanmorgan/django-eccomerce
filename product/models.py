@@ -5,6 +5,12 @@ from django.utils import timezone
 from django.contrib.auth.models import User
 from django.utils.text import slugify
 from django.db.models.aggregates import Avg
+from django.shortcuts import render,redirect
+from django.shortcuts import get_object_or_404
+from django.contrib.messages import constants as messages
+
+
+
 
 
 
@@ -92,3 +98,33 @@ class reviews(models.Model):
 
     def __str__(self):
         return str(self.product)
+
+
+
+
+class WishList(models.Model):
+    user=models.ForeignKey(User,related_name='wishlist_user',on_delete=models.SET_NULL,null=True,blank=True)
+    wished_item=models.CharField(max_length=20)
+    slug=models.SlugField(null=True,blank=True)
+    added_date = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.wished_item
+
+
+    def save(self,*args, **kwargs):
+        self.slug=slugify(self.wished_item)
+        super(Brand,self).save(*args, **kwargs)
+        
+        
+    def add_to_wishlist(request,slug):
+
+        item = get_object_or_404(slug=slug)
+
+        wished_item,created = product.objects.get_or_create(wished_item=item,
+        slug = item.slug,
+        user = request.user,
+   )
+
+        messages.info(request,'The item was added to your wishlist')
+        return redirect('wishlist.html',slug=slug)
