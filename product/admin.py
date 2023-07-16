@@ -1,7 +1,7 @@
 from django.contrib import admin
 from tof.admin import TofAdmin, TranslationTabularInline
 from tof.decorators import tof_prefetch
-from .models import product,product_image,Brand,reviews
+from .models import product,product_image,Brand,reviews,WishList
 
 
 
@@ -30,7 +30,6 @@ class ReviewsAdmin(admin.ModelAdmin):
     search_fields=['product__name','comment']
     
     
-    
 
 
 
@@ -43,3 +42,4 @@ admin.site.register(product,productadmin1)
 admin.site.register(product_image)
 admin.site.register(Brand,brandAdmin)
 admin.site.register(reviews,ReviewsAdmin)
+admin.site.register(WishList)

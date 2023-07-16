@@ -116,16 +116,16 @@
                                 </form>
                             </div>
                             <div class="details-action-group">
-                                <form method="post" action="{% url 'products:wish_list'  %}"> 
-                                    {% csrf_token %}
+                               
+                                
  
                                     <a class="details-wish wish" href="#" title="Add Your Wishlist">
                                         <input type="hidden" name="product_id" value="{{object.id}}"> 
 
                                         <i class="icofont-heart"></i>
                                         <span>add to wish</span>
+                                        <a href="{% url 'products:wish_list'  %}">add to wish</a>
                                     </a>
-                                </form>
                                 <a class="details-compare" href="compare.html" title="Compare This Item">
                                     <i class="fas fa-random"></i>
                                     <span>Compare This</span>
