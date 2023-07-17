@@ -54,10 +54,16 @@
                                                 <td class="table-image"><img src="{{item.product_wishlist.image.url}}" alt="product"></td>
                                                 <td class="table-name"><h6>{{item.product_wishlist.user}}</h6></td>
                                                 <td class="table-price"><h6>{{item.product_wishlist.price}}<small>/kilo</small></h6></td>
-                                                <td class="table-desc"><p>{{item.product_wishlist.description}}<a href="product-video.html">read more</a></p></td>
+                                                <td class="table-desc"><p>{{}<a href="product-video.html">read more</a></p></td>
                                                 <td class="table-status"><h6 class="stock-out">stock out</h6></td>
                                                 <td class="table-shop">
-                                                    <button class="product-add" title="Add to Cart">add to cart</button>
+                                                    <form  method="post" action="{% url 'orders:add_to_cart'%}">
+                                                        {% csrf_token %}
+                                                        <input style="background-color: aliceblue;" title="Enter Your Quantity" type="text" name="quantity" value="1">
+                                                        <input type="hidden" name="product_id" value="{{item.id}}"> 
+
+                                                        <button class="product-add" title="Add to Cart">add to cart</button>
+                                                    </form>
                                                     <div class="product-action">
                                                         <button class="action-minus" title="Quantity Minus"><i class="icofont-minus"></i></button>
                                                         <input class="action-input" title="Quantity Number" type="text" name="quantity" value="1">

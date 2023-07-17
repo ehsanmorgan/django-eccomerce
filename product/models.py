@@ -99,7 +99,10 @@ class reviews(models.Model):
     def __str__(self):
         return str(self.product)
 
-
+        
+        
+        
+        
 
 class WishProduct(models.Model):
     user=models.ForeignKey(User,related_name='wishproductuser',on_delete=models.SET_NULL,null=True,blank=True)
