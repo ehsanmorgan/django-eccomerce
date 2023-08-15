@@ -90,6 +90,7 @@ class Brand(models.Model):
     
     
     
+    
 
 
 class reviews(models.Model):
